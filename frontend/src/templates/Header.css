@@ -1,0 +1,10 @@
+.header {
+    display: flex;
+    
+
+    justify-content: center;
+    align-items: center;
+
+    color: gray;
+    background: rgba(0, 0, 0, 0.918)
+}
