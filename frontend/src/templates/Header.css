@@ -8,3 +8,14 @@
     color: gray;
     background: rgba(0, 0, 0, 0.918)
 }
+
+.icon {
+    text-decoration: none;
+    color: gray;
+}
+
+.cart {
+
+    text-decoration: none;
+    color: #FFF
+}
