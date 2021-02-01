@@ -1,0 +1,32 @@
+.products {
+    display: flex;
+    align-items: center;
+    justify-items: space-between;
+    flex-wrap: wrap;
+    height: 50vh;
+    
+}
+
+.products img {
+    height: 200px;
+    width: 200px;    
+}
+
+.productName {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.3rem;
+}
+.productPrice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: red;
+}
+.productDescription {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}

@@ -12,7 +12,10 @@ const Header = () => {
                         <h1> Shopping Store </h1>
                     </Link>
                     <Link className="cart" to="/cartscreen">
-                        <span> Cart </span>
+                        <a> Cart </a>
+                    </Link>
+                    <Link className="login" to='/login'>
+                        <a> Log in</a>
                     </Link>
                 </div>
             

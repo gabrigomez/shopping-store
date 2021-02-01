@@ -12,7 +12,7 @@
 .icon {
     text-decoration: none;
     color: gray;
-    /* margin-left: 400px;     */
+    margin-left: 80px;
     flex-grow: 1;
     text-align: center;
 }
@@ -28,4 +28,27 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.cart:hover {
+    text-decoration: none;
+    color: gray
+
+}
+
+.login {
+    text-decoration: none;
+    color: gold;
+    
+    width: 60px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login:hover {
+    text-decoration: none;
+    color: gray;
 }
