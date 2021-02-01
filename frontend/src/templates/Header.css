@@ -1,7 +1,6 @@
 .header {
     display: flex;
     
-
     justify-content: center;
     align-items: center;
 
@@ -9,13 +8,24 @@
     background: rgba(0, 0, 0, 0.918)
 }
 
+
 .icon {
     text-decoration: none;
     color: gray;
+    /* margin-left: 400px;     */
+    flex-grow: 1;
+    text-align: center;
 }
 
 .cart {
-
+    
     text-decoration: none;
-    color: #FFF
+    color: #FFF;
+    
+    width: 60px;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
