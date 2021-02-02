@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios'
 
-// import data from '../data';
 import Product from '../components/Product'
 
 const ProductScreen = () => {    

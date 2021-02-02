@@ -5,8 +5,7 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <BrowserRouter>
-            
+        <BrowserRouter>            
                 <div className="header">
                     <Link className="icon" to="/">
                         <h1> Shopping Store </h1>
@@ -14,11 +13,10 @@ const Header = () => {
                     <Link className="cart" to="/cartscreen">
                         Cart 
                     </Link>
-                    <Link className="login" to='/login'>
+                    <Link className="login" to="/login">
                         Log in
                     </Link>
-                </div>
-            
+                </div>            
         </BrowserRouter>
     );
 };
