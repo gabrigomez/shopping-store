@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Link, Route } from 'react-router-dom'
-import Homepage from '../screens/Homepage';
+
 import ProductScreen from '../screens/ProductScreen';
 
 import './Content.css'
