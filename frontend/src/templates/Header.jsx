@@ -5,17 +5,17 @@ import './Header.css'
 
 const Header = () => {
     return (
-        <BrowserRouter>            
+        <BrowserRouter>                
                 <div className="header">
-                    <Link className="icon" to="/">
+                    <a className="icon" href="/">
                         <h1> Shopping Store </h1>
-                    </Link>
-                    <Link className="cart" to="/cartscreen">
+                    </a>
+                    <a className="cart" href="/cartscreen">
                         Cart 
-                    </Link>
-                    <Link className="login" to="/login">
+                    </a>
+                    <a className="login" href="/login">
                         Log in
-                    </Link>
+                    </a>
                 </div>            
         </BrowserRouter>
     );
