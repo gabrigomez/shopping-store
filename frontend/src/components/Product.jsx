@@ -7,10 +7,14 @@ const Product = (props) => {
     return (
         <div>
             <div>
-                <img src={product.image} alt="image" />
-                <div className="productName"> {product.name} </div>
-                <div className="productPrice"> R${product.price} </div>
-                <div className="productDescription"> {product.description} </div>
+                <a href={`product/${product.id}`}>
+
+                    <img src={product.image} alt="image" />
+                    <div className="productName"> {product.name} </div>
+                    <div className="productPrice"> R${product.price} </div>
+                    
+                </a>
+
             </div>
         </div>
     );

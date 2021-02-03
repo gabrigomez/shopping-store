@@ -4,20 +4,20 @@
     justify-items: space-between;
     flex-wrap: wrap;
     height: 50vh;
-
     
 }
 
-.products img {
-    height: 200px;
-    width: 200px;
+.productsImg {
+    height: 300px;
+    width: 300px;
     border-radius: 0.5rem;
     border: solid 0.03rem rgba(0, 0, 0, 0.164);
     margin: 5px;
     
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    
 }
 
 .productName {

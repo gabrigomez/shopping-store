@@ -13,10 +13,10 @@ const ProductScreen = () => {
         fetchData()
     }, [])
     return (
-        <div className="products">            
+        <div className="products">                       
                 {products.map((product) => (
                     <Product product={product}></Product>
-                ))}            
+                ))}                      
         </div>
 
     );
