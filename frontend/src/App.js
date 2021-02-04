@@ -5,6 +5,8 @@ import Footer from './templates/Footer'
 import Content from './templates/Content'
 import { BrowserRouter } from 'react-router-dom';
 
+
+
 function App() {
   return (
     <BrowserRouter>

@@ -1,10 +1,20 @@
 .footer {
     display: flex;
     
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
 
     color: black;
-    background: rgba(0, 0, 0, 0.678)
+    background: rgba(0, 0, 0, 0.678);
 
+    
+}
+
+span {
+    font-size: 0.7rem;
+    padding-right: 20px;
+}
+
+i {
+    font-size: 15px;
 }
