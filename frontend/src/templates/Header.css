@@ -1,11 +1,11 @@
 .header {
     display: flex;
     
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     color: gray;
-    background: rgba(0, 0, 0, 0.918)
+    background: #101010
 }
 
 
@@ -47,9 +47,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    margin-right: 50px;
 }
 
 .login:hover {
     text-decoration: none;
     color: gray;
+}
+
+.logo {
+    width: 150px;
+    height: 150px;
+
+    display: flex;
+    margin-left: 100px;
+}
+
+.fas.fa-cart-arrow-down::before,
+.fas.fa-sign-in-alt::before {
+    font-size: 15px;
 }

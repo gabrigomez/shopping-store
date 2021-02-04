@@ -6,11 +6,17 @@ import './Footer.css'
 const Footer = () => {
     return (
         <div className="footer">
-            <a className="linkFooter" href="https://github.com/gabrigomez">
-                <i class="fas fa-laptop-code"></i>
-                <span> @gabrigomez - 2021</span>
-            </a>
+            <div>
 
+                <a className="linkFooter" href="https://github.com/gabrigomez">
+                    <i class="fas fa-laptop-code"></i>
+                    <span> @gabrigomez - 2021</span>
+                </a>
+            </div>
+            <div>
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-instagram"></i>
+            </div>
         </div>
     );
 };
