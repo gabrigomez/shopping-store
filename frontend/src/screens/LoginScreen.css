@@ -2,12 +2,31 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;    
+    flex-direction: column;
+    
+    margin-top: 65px;
+
+    border: solid black 1px;
+    border-radius: 8px;
 }
 
-.email {
-    padding: 20px;
+.loginField {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
+
+.fields {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
 
 .button {
     display: flex;
@@ -15,4 +34,5 @@
     justify-content: center;
 
     margin-top: 20px;
+    margin-bottom: 20px;
 }

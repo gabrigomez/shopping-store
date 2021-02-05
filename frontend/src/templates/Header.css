@@ -1,9 +1,9 @@
 .header {
-    display: flex;
-    
+    display: flex;    
     justify-content: space-between;
     align-items: center;
-
+    
+    justify-content: space-around;
     color: gray;
     background: #101010
 }
@@ -62,9 +62,11 @@
 
     display: flex;
     margin-left: 100px;
+    
 }
 
 .fas.fa-cart-arrow-down::before,
 .fas.fa-sign-in-alt::before {
     font-size: 15px;
 }
+

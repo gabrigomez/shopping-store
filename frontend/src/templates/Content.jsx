@@ -11,11 +11,14 @@ const Content = () => {
     return (
         <BrowserRouter>
             <div className='content'>
-                <Switch>
-                    <Route path="/" exact component={ProductScreen}></Route>
-                    <Route path="/login" component={LoginScreen}></Route>
-                    <Route path="/product/:id" component={ProductDetails}></Route>
-                </Switch>
+                <hr />
+                <div>
+                    <Switch>
+                        <Route path="/" exact component={ProductScreen}></Route>
+                        <Route path="/login" component={LoginScreen}></Route>
+                        <Route path="/product/:id" component={ProductDetails}></Route>
+                    </Switch>
+                </div>                
             </div>
         </BrowserRouter>
     );

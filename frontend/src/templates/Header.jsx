@@ -13,13 +13,12 @@ const Header = () => {
                 <a className="icon" href="/">
                     <img className="logo" src={logo} alt="logoMod" />
                 </a>
-
                 <a className="cart" href="/cartscreen">
                     <i class="fas fa-cart-arrow-down"> Cart </i>
                 </a>
                 <a className="login" href="/login">
                     <i class="fas fa-sign-in-alt"> Log in </i>
-                </a>
+                </a>                
             </div>
         </BrowserRouter>
     );

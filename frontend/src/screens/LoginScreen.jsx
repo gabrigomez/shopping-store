@@ -6,36 +6,37 @@ const Login = (props) => {
     const [password, setPassword] = useState('')
     return (
 
-        <div className="logIn"> 
+        <div className="logIn">
             <form>
-                <div className="logIn">
+                <div className="loginField">
                     Login
-                <div className="email">
-                        <label htmlFor="email">E-mail  </label>
-                        <input
-                            type="text"
-                            id="email"
-                            placeholder="Digite seu e-mail"
-                            required
-                            onChange={(e) => setEmail(e.target.value)} >
-                        </input>
-                    </div>
-                    <div className="senha">
-                        <label htmlFor="password">Senha  </label>
-                        <input
-                            type="text"
-                            id="password"
-                            placeholder="Digite sua senha"
-                            required
-                            onChange={(e) => setEmail(e.target.value)} >
-                        </input>
-                    </div>
+                </div>
+                <div className="fields">
+                    <label htmlFor="email">E-mail  </label>
+                    <input
+                        type="text"
+                        id="email"
+                        placeholder="Digite seu e-mail"
+                        required
+                        onChange={(e) => setEmail(e.target.value)} >
+                    </input>
+                </div>
+                <div className="fields">
+                    <label htmlFor="password">Senha  </label>
+                    <input
+                        type="text"
+                        id="password"
+                        placeholder="Digite sua senha"
+                        required
+                        onChange={(e) => setEmail(e.target.value)} >
+                    </input>
                 </div>
             </form>
             <button className="button">
                 Entrar
             </button>
         </div>
+
     );
 };
 

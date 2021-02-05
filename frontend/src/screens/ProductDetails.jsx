@@ -25,7 +25,7 @@ const ProductDetails = (props) => {
         )
     }
     return (
-        <div className="products">
+        <div className="container">
             <img className="productsImg" src={product.image} alt="image" />
             <div>
                 <div className="productName"> {product.name} </div>
