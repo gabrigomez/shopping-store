@@ -8,13 +8,10 @@ const Product = (props) => {
         <div>
             <div>
                 <a href={`product/${product.id}`}>
-
                     <img src={product.image} alt="image" />
                     <div className="productName"> {product.name} </div>
                     <div className="productPrice"> R${product.price} </div>
-                    
                 </a>
-
             </div>
         </div>
     );
