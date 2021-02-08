@@ -1,21 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import axios from 'axios'
 
 import './ProductDetails.css'
+import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../components/Loading';
+import Message from '../components/Message';
+import { detailsProduct } from '../actions/productActions';
 
 
 const ProductDetails = (props) => {
-    const [products, setProducts] = useState([])
-    useEffect(() => {
-        const fetchData = async () => {
-            const { data } = await axios.get('/api/products')
-            setProducts(data)
-        }
-        fetchData()
-    }, [])
+    const dispatch = useDispatch()
+    const productId = props.match.params.id
+    const productDetails = useSelector((state) => state.productDetails)
+    const { loading, error, product } = productDetails
 
-    const product = products.find((x) => x.id == props.match.params.id)
-    console.log(product)
+    useEffect(() => {
+        dispatch(detailsProduct(productId))
+    }, [dispatch, productId])
+
 
     if (!product) {
         return (
@@ -25,15 +26,23 @@ const ProductDetails = (props) => {
         )
     }
     return (
-        <div className="container">
-            <img className="productsImg" src={product.image} alt="image" />
-            <div>
-                <div className="productName"> {product.name} </div>
-                <div className="productPrice"> R${product.price} </div>
-                <div className="productDescription"> {product.description} </div>
-                <div className="productPrice"> Em estoque: {product.qtd} </div>
-                <button> Adicionar ao carrinho! </button>
-            </div>
+        <div>
+            {loading ? (
+                <Loading></Loading>
+            ) : error ? (
+                <Message>{error}</Message>
+            ) : (
+                        <div className="container">
+                            <img className="productsImg" src={product.image} alt="image" />
+                            <div>
+                                <div className="productName"> {product.name} </div>
+                                <div className="productPrice"> R${product.price} </div>
+                                <div className="productDescription"> {product.description} </div>
+                                <div className="productPrice"> Em estoque: {product.qtd} </div>
+                                <button> Adicionar ao carrinho! </button>
+                            </div>
+                        </div>
+                    )}
         </div>
     );
 };
