@@ -18,7 +18,7 @@ const Header = () => {
                 </a>
                 <a className="login" href="/login">
                     <i class="fas fa-sign-in-alt"> Log in </i>
-                </a>                
+                </a>
             </div>
         </BrowserRouter>
     );
