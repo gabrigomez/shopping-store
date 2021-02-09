@@ -8,6 +8,7 @@ import { detailsProduct } from '../actions/productActions';
 
 
 const ProductDetails = (props) => {
+    const [qtd, setQtd] = useState(1)
     const dispatch = useDispatch()
     const productId = props.match.params.id
     const productDetails = useSelector((state) => state.productDetails)
@@ -17,6 +18,9 @@ const ProductDetails = (props) => {
         dispatch(detailsProduct(productId))
     }, [dispatch, productId])
 
+    const addToCart = () => {
+        props.history.push(`/cart/${productId}?qtd=${qtd}`)
+    }
 
     if (!product) {
         return (
@@ -42,7 +46,23 @@ const ProductDetails = (props) => {
                                 </div>
                                 <div className="info2">
                                     <div className="productStock"> Estoque: {product.qtd} </div>
-                                    <button> Adicionar ao carrinho! </button>
+                                    {product.qtd > 0 ? (
+                                        <div>
+                                            <div>Selecione a quantidade</div>
+                                            <select value={qtd} onChange={(e) => setQtd(e.target.value)}>
+                                                {[...Array(product.qtd).keys()].map(
+                                                    (x) => (
+                                                        <option key={x + 1} value={x + 1}>
+                                                            {x + 1}
+                                                        </option>
+                                                    )
+                                                )}
+                                            </select>
+                                            <button onClick={addToCart}> Adicionar ao carrinho! </button>
+                                        </div>
+                                    ) : (
+                                            <div className="productStock"> Sem estoque!</div>
+                                        )}
                                 </div>
                             </div>
                         </div>

@@ -6,6 +6,7 @@ import LoginScreen from '../screens/LoginScreen';
 import ProductDetails from '../screens/ProductDetails';
 
 import './Content.css'
+import CartScreen from '../screens/CartScreen';
 
 const Content = () => {
     return (
@@ -17,8 +18,9 @@ const Content = () => {
                         <Route path="/" exact component={ProductScreen}></Route>
                         <Route path="/login" component={LoginScreen}></Route>
                         <Route path="/product/:id" component={ProductDetails}></Route>
+                        <Route path="/cart/:id?" component={CartScreen}></Route>
                     </Switch>
-                </div>                
+                </div>
             </div>
         </BrowserRouter>
     );

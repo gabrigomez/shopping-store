@@ -11,7 +11,7 @@ const data = {
         name: 'Brahma',
         price: 2.79,
         description: 'A preferida da galera',
-        qtd: 20,
+        qtd: 0,
         image: 'https://hiperideal.vteximg.com.br/arquivos/ids/184812-1000-1000/46959.jpg?v=637317923252170000'
     }, {
         id: 3,
@@ -27,7 +27,7 @@ const data = {
         description: 'A puro malte vinda da Holanda',
         qtd: 4,
         image: 'https://emporiokaminski.com.br/wp-content/uploads/2020/06/Cerveja-Heineken-350ml.jpg'
-    },    
+    },
     ],
 }
 
