@@ -20,13 +20,13 @@
     align-items: center;
 }
 
-.productName {
+.productNameInfo {
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 1.3rem;
 }
-.productPrice {
+.productPriceInfo {
     display: flex;
     justify-content: center;
     align-items: center;

@@ -34,16 +34,22 @@ const ProductDetails = (props) => {
             ) : (
                         <div className="container">
                             <img className="productsImg" src={product.image} alt="image" />
-                            <div>
-                                <div className="productName"> {product.name} </div>
-                                <div className="productPrice"> R${product.price} </div>
-                                <div className="productDescription"> {product.description} </div>
-                                <div className="productPrice"> Em estoque: {product.qtd} </div>
-                                <button> Adicionar ao carrinho! </button>
+                            <div className="container2">
+                                <div className="info1">
+                                    <div className="productName"> {product.name} </div>
+                                    <div className="productPrice"> R${product.price} </div>
+                                    <div className="productDescription"> {product.description} </div>
+                                </div>
+                                <div className="info2">
+                                    <div className="productStock"> Estoque: {product.qtd} </div>
+                                    <button> Adicionar ao carrinho! </button>
+                                </div>
                             </div>
                         </div>
-                    )}
-        </div>
+
+                    )
+            }
+        </div >
     );
 };
 
