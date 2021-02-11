@@ -6,6 +6,10 @@ import Message from '../components/Message'
 import Loading from '../components/Loading'
 import { listProducts } from '../actions/productActions';
 
+import '../tailwind.css'
+
+
+
 const ProductScreen = () => {
     const dispatch = useDispatch()
     const productList = useSelector((state) => state.productList)

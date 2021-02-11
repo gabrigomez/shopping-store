@@ -48,17 +48,18 @@ const ProductDetails = (props) => {
                                     <div className="productStock"> Estoque: {product.qtd} </div>
                                     {product.qtd > 0 ? (
                                         <div>
-                                            <div>Selecione a quantidade</div>
+                                            <div className="selector">Selecione a quantidade
                                             <select value={qtd} onChange={(e) => setQtd(e.target.value)}>
-                                                {[...Array(product.qtd).keys()].map(
-                                                    (x) => (
-                                                        <option key={x + 1} value={x + 1}>
-                                                            {x + 1}
-                                                        </option>
-                                                    )
-                                                )}
-                                            </select>
-                                            <button onClick={addToCart}> Adicionar ao carrinho! </button>
+                                                    {[...Array(product.qtd).keys()].map(
+                                                        (x) => (
+                                                            <option key={x + 1} value={x + 1}>
+                                                                {x + 1}
+                                                            </option>
+                                                        )
+                                                    )}
+                                                </select>
+                                            </div>
+                                            <button className='btn' onClick={addToCart}> Adicionar ao carrinho! </button>
                                         </div>
                                     ) : (
                                             <div className="productStock"> Sem estoque!</div>

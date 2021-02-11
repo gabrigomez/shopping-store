@@ -11,7 +11,7 @@
 
 .container2 {
     height: 60%;
-    width: 200px;
+    width: 250px;
     
     display: flex;
     flex-direction: column;
@@ -69,6 +69,19 @@
 a {
     text-decoration: none;
     color: black;
+}
+
+select {
+    margin-left: 15px;
+    font-size: 0.9rem;
+    border: solid black 1px;
+    border-radius: 8px;
+}
+
+.selector {
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 0.9rem;
 }
 
 
