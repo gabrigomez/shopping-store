@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../actions/cartActions';
+import Message from '../components/Message';
+import { Link } from 'react-router-dom'
 import './CartScreen.css'
 
 const CartScreen = (props) => {
@@ -8,6 +10,8 @@ const CartScreen = (props) => {
     const qtd = props.location.search ? Number(props.location.search.split('=')[1]) : 1
 
     const dispatch = useDispatch()
+    const cart = useSelector((state) => state.cart)
+    const { cartItems } = cart
     useEffect(() => {
         if (productId) {
             dispatch(addToCart(productId, qtd))
@@ -15,12 +19,21 @@ const CartScreen = (props) => {
     }, [dispatch, qtd, productId])
     return (
         <div className="cartContainer">
-            <h1>Cart Screen</h1>
-            <div className="cartDetails">
-                <div> Product Id {productId}</div>
-                <div> Quantidade: {qtd}</div>
-                <button> Ir para o pagamento</button>
-            </div>
+            {cartItems.length === 0 ? <Message>
+                Carrinho Vazio <Link to="/"> Voltar </Link>
+            </Message>
+                :
+                <ul>
+                    {
+                        cartItems.map((item) => (
+                            <li key={item.product}>
+
+                            </li>
+                        ))
+                    }
+                </ul>
+            }
+            <button className="btn"> Ir para o pagamento</button>
         </div>
     );
 };

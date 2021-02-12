@@ -19,6 +19,7 @@ const Content = () => {
                         <Route path="/login" component={LoginScreen}></Route>
                         <Route path="/product/:id" component={ProductDetails}></Route>
                         <Route path="/cart/:id?" component={CartScreen}></Route>
+                        <Route path="/cartscreen" component={CartScreen}></Route>
                     </Switch>
                 </div>
             </div>
