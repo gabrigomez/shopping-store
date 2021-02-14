@@ -45,7 +45,6 @@ const ProductDetails = (props) => {
                                     <div className="productDescription"> {product.description} </div>
                                 </div>
                                 <div className="info2">
-                                    <div className="productStock"> Estoque: {product.qtd} </div>
                                     {product.qtd > 0 ? (
                                         <div>
                                             <div className="selector">Selecione a quantidade
@@ -59,7 +58,11 @@ const ProductDetails = (props) => {
                                                     )}
                                                 </select>
                                             </div>
-                                            <button className='btn' onClick={addToCart}> Adicionar ao carrinho! </button>
+                                            <button className='btn' onClick={addToCart}>
+                                                ADICIONAR
+                                                <i class="fas fa-shopping-cart"></i>
+                                            </button>
+                                            <div className="productStock"> Estoque: {product.qtd} </div>
                                         </div>
                                     ) : (
                                             <div className="productStock"> Sem estoque!</div>

@@ -27,13 +27,13 @@
 
 
 .productsImg {
-    height: 500px;
-    width: 500px;
-    border-radius: 0.5rem;    
-    
     display: flex;
     justify-content: center;
     align-items: flex-start;
+
+    height: 500px;
+    width: 500px;
+    border-radius: 0.5rem;    
     
 }
 
@@ -41,6 +41,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    
     font-size: 2rem;
     margin-bottom: 10px;
 }
@@ -48,6 +49,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     color: red;
     font-size: 1.7rem;
     margin-bottom: 20px;
@@ -56,14 +58,22 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
     color: red;
     margin-bottom: 20px;
+    font-size: small;
+    font-weight: bold;
 }
 .productDescription {
     display: flex;
     justify-content: center;
     align-items: center;
+    
     font-size: 0.8rem;
+    color: black;
+    font-weight: bold;
+    
+
 }
 
 a {
@@ -79,9 +89,23 @@ select {
 }
 
 .selector {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     margin-bottom: 20px;
     font-weight: bold;
     font-size: 0.9rem;
 }
 
+button.btn {
+    height: 50px;
+    width: 220px;
+
+    font-weight: lighter;
+}
+
+button i {
+    margin-left: 10px    
+}
 
