@@ -1,6 +1,5 @@
 .cartContainer {
-    display: flex;
-    flex-direction: column;
+    display: flex;    
     justify-content: center;
     align-items: center;
 
@@ -15,5 +14,17 @@
     align-items: center;
 
     height: 15%;
+}
+
+img {
+    width: 90px;
+    height: 90px;
+}
+
+.productCart {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
