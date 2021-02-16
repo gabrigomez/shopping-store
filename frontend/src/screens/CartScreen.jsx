@@ -27,7 +27,7 @@ const CartScreen = (props) => {
     }
 
     return (
-        <div className="cartContainer">
+        <div className="cartContent">
             <div className="productCart">
                 <h1> Carrinho de compras </h1>
                 {cartItems.length === 0 ? (
@@ -75,29 +75,25 @@ const CartScreen = (props) => {
                         </ul>
                     )}
             </div>
-
-            <div>
-                <div>
-                    <ul>
-                        <li>
-                            <h2>
-                                Subtotal ({cartItems.reduce((a, c) => a + c.qtd, 0)} items) : R$
+            <div className="subtotal">
+                <ul>
+                    <li>
+                        <h2>
+                            Subtotal ({cartItems.reduce((a, c) => a + c.qtd, 0)} items) : R$
                                 {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
-                            </h2>
-                        </li>
-                        <li>
-                            <button
-                                type="button"
-                                onClick={checkoutHandler}
-                                disabled={cartItems.length === 0}>
-                                Ir para o pagamento
+                        </h2>
+                    </li>
+                    <li>
+                        <button
+                            type="button"
+                            className="btn"
+                            onClick={checkoutHandler}
+                            disabled={cartItems.length === 0}>
+                            Ir para o pagamento
                             </button>
-                        </li>
-                    </ul>
-                </div>
+                    </li>
+                </ul>
             </div>
-
-            <button className="btn"> Ir para o pagamento</button>
         </div>
     );
 };

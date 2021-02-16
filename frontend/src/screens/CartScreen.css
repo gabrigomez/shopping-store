@@ -1,19 +1,10 @@
-.cartContainer {
-    display: flex;    
-    justify-content: center;
-    align-items: center;
-
-    width: 500px;
-    height: 500px;
-}
-
-.cartDetails {
+.cartContent {
     display: flex;
-    flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    height: 15%;
+       
+    width: 850px;
+    height: 425px;
 }
 
 img {
@@ -26,5 +17,23 @@ img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.productCart ul {
+    margin-right: 35px;
+}
+
+.productCart ul li {
+    display: flex;    
+    align-items: center;
+}
+
+.subtotal {    
+    margin-left: 65px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
