@@ -38,39 +38,42 @@ const CartScreen = (props) => {
                 ) : (
                         <ul>
                             {cartItems.map((item) => (
-                                <li key={item.product}>
-                                    <div className="row">
-                                        <img src={item.image} alt={item.name}></img>
-                                    </div>
-                                    <div>
-                                        <Link to={`product/${item.product}`}>{item.name}</Link>
-                                    </div>
-                                    <div>
-                                        <select
-                                            value={item.qtd}
-                                            onChange={(e) =>
-                                                dispatch(addToCart(item.product, Number(e.target.value))
-                                                )
-                                            }
-                                        >
-                                            {[...Array(item.qtd).keys()].map((x) => (
-                                                <option key={x + 1} value={x + 1}>
-                                                    {x + 1}
-                                                </option>
-                                            ))}
-                                        </select>
-                                    </div>
+                                <div className="productOptions">
+                                    <li key={item.product}>
+                                        <div>
+                                            <img src={item.image} alt={item.name}></img>
+                                        </div>
+                                        <div className="rowName">
+                                            <Link to={`product/${item.product}`}>{item.name}</Link>
+                                        </div>
 
-                                    <div>R${item.price}</div>
-                                    <div>
-                                        <button
-                                            type="button"
-                                            onClick={() => removeFromCart(item.product)}>
-                                            Deletar item
-                                        </button>
-                                    </div>
+                                        <div className="rowQtd">
+                                            <select
+                                                className="rowProduct"
+                                                value={item.qtd}
+                                                onChange={(e) =>
+                                                    dispatch(addToCart(item.product, Number(e.target.value))
+                                                    )
+                                                }
+                                            >
+                                                {[...Array(item.qtd).keys()].map((x) => (
+                                                    <option key={x + 1} value={x + 1}>
+                                                        {x + 1}
+                                                    </option>
+                                                ))}
+                                            </select>
+                                        </div>
+                                        <div className="rowPrice">R${item.price}</div>
+                                        <div className="rowRemove">
+                                            <button
+                                                type="button"
+                                                onClick={() => removeFromCart(item.product)}>
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </div>
 
-                                </li>
+                                    </li>
+                                </div>
                             ))}
                         </ul>
                     )}
