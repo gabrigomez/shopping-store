@@ -1,9 +1,14 @@
 import express from 'express'
 import data from './data.js'
 import mongoose from 'mongoose'
+import dotenv from 'dotenv'
 import userRouter from './routers/userRouter.js'
 
 const app = express()
+dotenv.config()
+
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 
 mongoose.connect('mongodb://localhost:beerstore', {
     useNewUrlParser: true,
