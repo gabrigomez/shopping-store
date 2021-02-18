@@ -1,5 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux'
+import Loading from '../components/Loading';
+import Message from '../components/Message';
+import { signin } from '../actions/userActions';
 // import './LoginScreen.css'
+
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -16,6 +21,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import '../tailwind.css'
+
 
 function Copyright() {
     return (
@@ -51,13 +57,36 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function SignIn() {
+export default function SignIn(props) {
 
     const classes = useStyles()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    const redirect = props.location.search
+        ? props.location.search.split('=')[1]
+        : '/'
+
+    const userSignIn = useSelector((state) => state.userSignin)
+    const { userInfo, loading, error } = userSignIn
+
+    const dispatch = useDispatch()
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+        dispatch(signin(email, password))
+    }
+
+    useEffect(() => {
+        if (userInfo) {
+            props.history.push(redirect)
+        }
+    }, [props.history, redirect, userInfo])
+
     return (
         <Container component="main" maxWidth="xs">
+            {loading && <Loading></Loading>}
+            {error && <Message>{error}</Message>}
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
@@ -101,6 +130,7 @@ export default function SignIn() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onSubmit={submitHandler}
                     >
                         Entrar
                     </Button>
