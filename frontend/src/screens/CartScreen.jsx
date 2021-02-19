@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addToCart } from '../actions/cartActions';
+import { addToCart, removeFromCart } from '../actions/cartActions';
 import Message from '../components/Message';
 import { Link } from 'react-router-dom'
 import './CartScreen.css'
@@ -18,8 +18,8 @@ const CartScreen = (props) => {
         }
     }, [dispatch, qtd, productId])
 
-    const removeFromCart = (productId) => {
-        //delete item
+    const removeFromCartHandler = (id) => {
+        dispatch(removeFromCart(id))
     }
 
     const checkoutHandler = () => {
@@ -69,7 +69,7 @@ const CartScreen = (props) => {
                                         <div className="rowRemove">
                                             <button
                                                 type="button"
-                                                onClick={() => removeFromCart(item.product)}>
+                                                onClick={() => removeFromCartHandler(item.product)}>
                                                 <i class="fas fa-trash"></i>
                                             </button>
                                         </div>
