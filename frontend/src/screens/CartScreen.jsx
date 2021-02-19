@@ -32,7 +32,9 @@ const CartScreen = (props) => {
                 <h1> Carrinho de compras </h1>
                 {cartItems.length === 0 ? (
                     <Message>
-                        O carrinho está vazio. <Link to="/"> Voltar pra o Início</Link>
+                        O carrinho está vazio. <br />
+                        <i class="fas fa-backward"></i>
+                        <Link to="/"> Voltar pra o Início</Link>
                     </Message>
 
                 ) : (
@@ -56,7 +58,7 @@ const CartScreen = (props) => {
                                                     )
                                                 }
                                             >
-                                                {[...Array(item.qtd).keys()].map((x) => (
+                                                {[...Array(item.inStock).keys()].map((x) => (
                                                     <option key={x + 1} value={x + 1}>
                                                         {x + 1}
                                                     </option>

@@ -67,3 +67,8 @@ img {
     color: rgba(216, 5, 5, 0.74);
 }
 
+.fas.fa-backward {
+    margin-right: 15px;
+    color: rgba(255, 0, 0, 0.76);
+}
+

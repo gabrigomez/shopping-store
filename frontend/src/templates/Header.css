@@ -37,6 +37,12 @@
 
 }
 
+.cartQtd {
+    font-size: 0.9rem;
+    color: gold;
+    margin-left: 2px;
+}
+
 .login {
     text-decoration: none;
     color: gold;

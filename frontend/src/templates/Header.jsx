@@ -10,6 +10,8 @@ import { signout } from '../actions/userActions';
 
 const Header = () => {
     const userSignIn = useSelector((state) => state.userSignin)
+    const cart = useSelector((state) => state.cart)
+    const { cartItems } = cart
     const { userInfo } = userSignIn
     const dispatch = useDispatch()
     const signoutHandler = () => {
@@ -24,6 +26,13 @@ const Header = () => {
                 </a>
                 <a className="cart" href="/cartscreen">
                     <i class="fas fa-cart-arrow-down"> Cart </i>
+                    {cartItems.length > 0 ? (
+                        <div className="cartQtd">
+                            {cartItems.length}
+                        </div>
+                    ) :
+                        <div></div>
+                    }
                 </a>
                 <a className="login" href="/login">
                     {userInfo ? (
