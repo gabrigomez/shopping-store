@@ -8,7 +8,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/userActions';
 
 
-
 const Header = () => {
     const userSignIn = useSelector((state) => state.userSignin)
     const { userInfo } = userSignIn
@@ -32,6 +31,14 @@ const Header = () => {
                             <a to="#">
                                 Fala, {userInfo.name}!
                             </a>
+                            <ul className="logout">
+                                <li>
+                                    <a onClick={signoutHandler}>
+                                        <i class="fas fa-sign-out-alt"></i>
+                                        Sair
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     ) : (
 

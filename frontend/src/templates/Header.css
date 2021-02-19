@@ -56,6 +56,15 @@
     color: gray;
 }
 
+.logo {
+    width: 150px;
+    height: 150px;
+    
+    display: flex;
+    margin-left: 100px;
+    
+}
+
 .loginName a {
     color: gold;
     font-size: 0.8rem;
@@ -66,14 +75,15 @@
     font-size: 0.8rem;
 }
 
-.logo {
-    width: 150px;
-    height: 150px;
-
-    display: flex;
-    margin-left: 100px;
-    
+.logout a {
+    position: absolute;
+    display: none;
 }
+
+.loginName:hover .logout a {
+    display: block;
+}
+
 
 .fas.fa-cart-arrow-down::before,
 .fas.fa-sign-in-alt::before {
