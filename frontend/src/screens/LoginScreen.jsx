@@ -130,7 +130,7 @@ export default function SignIn(props) {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
-                        onSubmit={submitHandler}
+                        onClick={submitHandler}
                     >
                         Entrar
                     </Button>

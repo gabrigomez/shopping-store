@@ -24,7 +24,7 @@
     
     width: 60px;
     height: 100%;
-    margin-right: 15px;
+    margin-right: 30px;
 
     display: flex;
     justify-content: center;
@@ -54,6 +54,16 @@
 .login:hover {
     text-decoration: none;
     color: gray;
+}
+
+.loginName a {
+    color: gold;
+    font-size: 0.8rem;
+}
+
+.loginName a:hover {
+    color: rgb(163, 162, 162);
+    font-size: 0.8rem;
 }
 
 .logo {

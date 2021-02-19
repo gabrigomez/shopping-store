@@ -26,19 +26,19 @@ const Header = () => {
                 <a className="cart" href="/cartscreen">
                     <i class="fas fa-cart-arrow-down"> Cart </i>
                 </a>
-                <Link className="login" to="/login">
+                <a className="login" href="/login">
                     {userInfo ? (
-                        <div>
-                            <Link to="#">
-                                {userInfo.name}
-                            </Link>
+                        <div className="loginName">
+                            <a to="#">
+                                Fala, {userInfo.name}!
+                            </a>
                         </div>
                     ) : (
 
                             <i class="fas fa-sign-in-alt"> Log in </i>
                         )
                     }
-                </Link>
+                </a>
             </div>
         </BrowserRouter>
     );
