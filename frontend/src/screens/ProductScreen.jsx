@@ -10,14 +10,23 @@ import '../tailwind.css'
 
 
 
-const ProductScreen = () => {
+const ProductScreen = (props) => {
     const dispatch = useDispatch()
     const productList = useSelector((state) => state.productList)
     const { loading, error, products } = productList
 
+    const qtd = 1
+
+    const addToCart = () => {
+        props.history.push(`/cart/${products.id}?qtd=${qtd}`)
+    }
+
     useEffect(() => {
         dispatch(listProducts())
     }, [dispatch])
+
+    //TO DO: GET THE FUCKIN ID!!!
+
     return (
         <div>
             {loading ? (
@@ -27,9 +36,17 @@ const ProductScreen = () => {
             ) : (
                         <div className="products">
                             {products.map((product) => (
-                                <Product key={product._id} product={product}></Product>
+                                <div>
+                                    <Product key={product.id} product={product}></Product>
+                                    <button className='btn' onClick={addToCart}>
+                                        ADICIONAR
+                                    <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
                             ))}
+
                         </div>
+
                     )}
         </div>
     );
