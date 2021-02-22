@@ -37,7 +37,7 @@ const ProductDetails = (props) => {
                 <Message>{error}</Message>
             ) : (
                         <div className="container">
-                            <img className="productsImg" src={product.image} alt="image" />
+                            <img className="productsImg" src={product.image} />
                             <div className="container2">
                                 <div className="info1">
                                     <div className="productName"> {product.name} </div>
