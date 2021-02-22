@@ -35,6 +35,7 @@ const ShippingScreen = (props) => {
 
     const classes = useStyles()
     const cart = useSelector((state) => state.cart)
+    const user = useSelector((state) => state.userSignin.userInfo)
     const { shippingAddress } = cart
 
     const [fullName, setFullName] = useState(shippingAddress.fullName)
@@ -43,6 +44,10 @@ const ShippingScreen = (props) => {
     const [postalCode, setPostalCode] = useState(shippingAddress.postalCode)
 
     const dispatch = useDispatch()
+
+    if (!user) {
+        props.history.push('/login')
+    }
 
     const submitHandler = (e) => {
         e.preventDefault();
