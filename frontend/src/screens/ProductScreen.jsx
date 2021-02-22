@@ -7,16 +7,17 @@ import Loading from '../components/Loading'
 import { listProducts } from '../actions/productActions';
 
 import '../tailwind.css'
+import './ProductScreen.css'
+
 
 const ProductScreen = (props) => {
     const dispatch = useDispatch()
     const productList = useSelector((state) => state.productList)
     const { loading, error, products } = productList
 
-    const qtd = 1
-
     const addToCart = (event) => {
         const id = event.target.id
+        const qtd = 1
         props.history.push(`/cart/${id}?qtd=${qtd}`)
     }
 
@@ -35,10 +36,12 @@ const ProductScreen = (props) => {
                             {products.map((product) => (
                                 <div>
                                     <Product key={product.id} product={product}></Product>
-                                    <button id={product.id} className='btn' onClick={addToCart}>
-                                        ADICIONAR
-                                    <i class="fas fa-shopping-cart"></i>
-                                    </button>
+                                    <div className="addToCartMainSection">
+                                        <button id={product.id} className='addToCart' onClick={addToCart}>
+                                            ADICIONAR
+                                        <i class="fas fa-shopping-cart"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             ))}
 

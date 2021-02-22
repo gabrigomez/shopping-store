@@ -5,4 +5,8 @@
   @apply m-2 px-3 py-1 bg-blue-600 text-white rounded border-2 hover:border-blue-400;
 }
 
+.addToCart {
+  @apply m-2 px-3 py-1 bg-blue-600 text-white rounded border-2 hover:border-yellow-300;
+}
+
 @tailwind utilities;
