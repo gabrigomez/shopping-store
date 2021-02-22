@@ -8,8 +8,10 @@ import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import LinearProgress from '@material-ui/core/LinearProgress';
 
 import '../tailwind.css'
+import './ShippingScreen.css'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -59,6 +61,9 @@ const ShippingScreen = (props) => {
 
     return (
         <Container component="main" maxWidth="xs">
+            <div className="orderBar">
+                <LinearProgress variant="determinate" value={50} />
+            </div>
             <CssBaseline />
             <Typography align="center" component="h1" variant="h6">
                 Informações de entrega

@@ -2,11 +2,11 @@
 @tailwind components;
 
 .btn {
-  @apply m-2 px-3 py-1 bg-blue-600 text-white rounded border-2 hover:border-blue-400;
+  @apply m-2 px-3 py-1 bg-yellow-400 text-white rounded border-2 hover:border-gray-600;
 }
 
 .addToCart {
-  @apply m-2 px-3 py-1 bg-blue-600 text-white rounded border-2 hover:border-yellow-300;
+  @apply m-2 px-3 py-1 bg-yellow-400 text-white rounded border-2 hover:border-gray-500;
 }
 
 @tailwind utilities;
