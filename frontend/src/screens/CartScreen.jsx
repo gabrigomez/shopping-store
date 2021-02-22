@@ -11,6 +11,7 @@ const CartScreen = (props) => {
 
     const dispatch = useDispatch()
     const cart = useSelector((state) => state.cart)
+    const user = useSelector((state) => state.userSignin.userInfo)
     const { cartItems } = cart
     useEffect(() => {
         if (productId) {
@@ -23,7 +24,11 @@ const CartScreen = (props) => {
     }
 
     const checkoutHandler = () => {
-        props.history.push('/signin?redirect=shipping')
+        if (user) {
+            props.history.push('/shipping')
+        } else {
+            props.history.push('/login')
+        }
     }
 
     return (

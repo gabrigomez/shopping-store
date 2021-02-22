@@ -4,9 +4,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'
 import ProductScreen from '../screens/ProductScreen';
 import LoginScreen from '../screens/LoginScreen';
 import ProductDetails from '../screens/ProductDetails';
-
-import './Content.css'
 import CartScreen from '../screens/CartScreen';
+import ShippingScreen from '../screens/ShippingScreen';
+import './Content.css'
 
 const Content = () => {
     return (
@@ -20,6 +20,7 @@ const Content = () => {
                         <Route path="/product/:id" component={ProductDetails}></Route>
                         <Route path="/cart/:id?" component={CartScreen}></Route>
                         <Route path="/cartscreen" component={CartScreen}></Route>
+                        <Route path="/shipping" component={ShippingScreen}></Route>
                     </Switch>
                 </div>
             </div>
