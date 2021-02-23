@@ -15,26 +15,12 @@ import Checkbox from '@material-ui/core/Checkbox';
 import Link from '@material-ui/core/Link';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 
 import '../tailwind.css'
-
-
-function Copyright() {
-    return (
-        <Typography variant="body2" color="textSecondary" align="center">
-            {'Copyright © '}
-            <Link color="inherit" href="https://material-ui.com/">
-                Beer Store
-        </Link>{' '}
-            {new Date().getFullYear()}
-            {'.'}
-        </Typography>
-    );
-}
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -57,45 +43,41 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function SignIn(props) {
-
+const SignUpScreen = () => {
     const classes = useStyles()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-    const redirect = props.location.search
-        ? props.location.search.split('=')[1]
-        : '/'
-
-    const userSignIn = useSelector((state) => state.userSignin)
-    const { userInfo, loading, error } = userSignIn
+    const [name, setName] = useState('')
 
     const dispatch = useDispatch()
-
     const submitHandler = (e) => {
         e.preventDefault()
         dispatch(signin(email, password))
     }
 
-    useEffect(() => {
-        if (userInfo) {
-            props.history.push(redirect)
-        }
-    }, [props.history, redirect, userInfo])
-
     return (
         <Container component="main" maxWidth="xs">
-            {loading && <Loading></Loading>}
-            {error && <Message>{error}</Message>}
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
-                    <LockOutlinedIcon />
+                    <ArrowForwardIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
-                    Login
+                    Sign Up
                 </Typography>
                 <form className={classes.form} noValidate>
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="name"
+                        label="Digite seu nome"
+                        name="name"
+                        autoComplete="name"
+                        autoFocus
+                        onChange={(e) => setName(e.target.value)}
+                    />
                     <TextField
                         variant="outlined"
                         margin="normal"
@@ -120,10 +102,6 @@ export default function SignIn(props) {
                         autoComplete="current-password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
-                    <FormControlLabel
-                        control={<Checkbox value="remember" color="secondary" />}
-                        label="Lembrar-me!"
-                    />
                     <Button
                         type="submit"
                         fullWidth
@@ -134,23 +112,17 @@ export default function SignIn(props) {
                     >
                         Entrar
                     </Button>
-                    <Grid container>
-                        <Grid item xs>
-                            <Link href="#" variant="body2">
-                                Esqueci a senha
-                            </Link>
-                        </Grid>
+                    <Grid justify="center" container>
                         <Grid item>
-                            <Link href="/signup" variant="body2">
-                                {"Não possui conta? Cadastre-se aqui!"}
+                            <Link href="/login" variant="body2">
+                                {"Já possui conta? Entre aqui!"}
                             </Link>
                         </Grid>
                     </Grid>
                 </form>
             </div>
-            <Box mt={8}>
-                <Copyright />
-            </Box>
         </Container>
     );
-}
+};
+
+export default SignUpScreen;

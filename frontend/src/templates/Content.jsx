@@ -7,6 +7,7 @@ import ProductDetails from '../screens/ProductDetails';
 import CartScreen from '../screens/CartScreen';
 import ShippingScreen from '../screens/ShippingScreen';
 import './Content.css'
+import SignUpScreen from '../screens/SignUpScreen';
 
 const Content = () => {
     return (
@@ -21,6 +22,7 @@ const Content = () => {
                         <Route path="/cart/:id?" component={CartScreen}></Route>
                         <Route path="/cartscreen" component={CartScreen}></Route>
                         <Route path="/shipping" component={ShippingScreen}></Route>
+                        <Route path="/signup" component={SignUpScreen}></Route>
                     </Switch>
                 </div>
             </div>
