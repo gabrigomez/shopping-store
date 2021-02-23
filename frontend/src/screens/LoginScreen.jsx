@@ -63,14 +63,14 @@ export default function SignIn(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const dispatch = useDispatch()
+    const userSignIn = useSelector((state) => state.userSignin)
+    const { userInfo, loading, error } = userSignIn
+
     const redirect = props.location.search
         ? props.location.search.split('=')[1]
         : '/'
 
-    const userSignIn = useSelector((state) => state.userSignin)
-    const { userInfo, loading, error } = userSignIn
-
-    const dispatch = useDispatch()
 
     const submitHandler = (e) => {
         e.preventDefault()

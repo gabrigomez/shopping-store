@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import Loading from '../components/Loading';
 import Message from '../components/Message';
-import { signin } from '../actions/userActions';
+import { signup } from '../actions/userActions';
 // import './LoginScreen.css'
 
 
@@ -43,20 +43,41 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const SignUpScreen = () => {
+const SignUpScreen = (props) => {
     const classes = useStyles()
-    const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
+    const [email, setEmail] = useState('')
+    const [confirmEmail, setConfirmEmail] = useState('')
 
     const dispatch = useDispatch()
+    const userSignUp = useSelector((state) => state.userSignUp)
+    const { loading, userInfo, error } = userSignUp
+
+    const redirect = props.location.search
+        ? props.location.search.split('=')[1]
+        : '/'
+
+
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(signin(email, password))
+        if (email !== confirmEmail) {
+            alert('E-mails não conferem!')
+        } else {
+            dispatch(signup(email, password, name))
+        }
     }
+
+    useEffect(() => {
+        if (userInfo) {
+            props.history.push(redirect)
+        }
+    }, [props.history, redirect, userInfo])
 
     return (
         <Container component="main" maxWidth="xs">
+            {loading && <Loading></Loading>}
+            {error && <Message>{error}</Message>}
             <CssBaseline />
             <div className={classes.paper}>
                 <Avatar className={classes.avatar}>
@@ -89,6 +110,18 @@ const SignUpScreen = () => {
                         autoComplete="email"
                         autoFocus
                         onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <TextField
+                        variant="outlined"
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="confirmEmail"
+                        label="Confirme seu e-mail"
+                        name="confirmEmail"
+                        autoComplete="confirmEmail"
+                        autoFocus
+                        onChange={(e) => setConfirmEmail(e.target.value)}
                     />
                     <TextField
                         variant="outlined"
