@@ -6,6 +6,11 @@ import './Header.css'
 import logo from '../assets/logoMod.png'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AddBoxIcon from '@material-ui/icons/AddBox';
+import Badge from '@material-ui/core/Badge';
+import IconButton from '@material-ui/core/IconButton';
+import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import { withStyles } from '@material-ui/core/styles';
+
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/userActions';
 
@@ -16,9 +21,17 @@ const Header = () => {
     const { cartItems } = cart
     const { userInfo } = userSignIn
     const dispatch = useDispatch()
+
     const signoutHandler = () => {
         dispatch(signout())
     }
+
+    const StyledBadge = withStyles((theme) => ({
+        badge: {
+            right: 40,
+            top: 7,
+        }
+    }))(Badge);
 
     return (
         <BrowserRouter>
@@ -27,13 +40,18 @@ const Header = () => {
                     <img className="logo" src={logo} alt="logoMod" />
                 </a>
                 <a className="cart" href="/cartscreen">
-                    <i class="fas fa-cart-arrow-down"> Cart </i>
                     {cartItems.length > 0 ? (
                         <div className="cartQtd">
-                            {cartItems.length}
+                            <IconButton aria-label="cart">
+                                <StyledBadge badgeContent={cartItems.length} color="secondary">
+                                    <ShoppingCartIcon className="cart" />
+                                </StyledBadge>
+                            </IconButton>
                         </div>
                     ) :
-                        <div></div>
+                        <div>
+                            <ShoppingCartIcon /> Carrinho
+                        </div>
                     }
                 </a>
                 <div className="login" >

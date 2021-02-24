@@ -7,8 +7,6 @@
     color: gray;
     background: #101010
 }
-
-
 .icon {
     text-decoration: none;
     color: gray;
@@ -16,7 +14,6 @@
     flex-grow: 1;
     text-align: center;
 }
-
 .cart {    
     text-decoration: none;
     color: #FFF;
@@ -24,6 +21,8 @@
     width: 60px;
     height: 100%;
     margin-right: 30px;
+    font-size: 0.8rem;
+    text-align: center;
 
     display: flex;
     justify-content: center;
@@ -53,8 +52,6 @@
     font-size: 0.8rem;
 
 }
-
-
 .logo {
     width: 150px;
     height: 150px;
@@ -109,9 +106,4 @@
     display: block;
 }
 
-
-.fas.fa-cart-arrow-down::before,
-.fas.fa-sign-in-alt::before {
-    font-size: 15px;
-}
 
