@@ -4,6 +4,8 @@ import { BrowserRouter, Link, Route } from 'react-router-dom'
 import "@fortawesome/fontawesome-free/css/all.css";
 import './Header.css'
 import logo from '../assets/logoMod.png'
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import AddBoxIcon from '@material-ui/icons/AddBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/userActions';
 
@@ -34,7 +36,7 @@ const Header = () => {
                         <div></div>
                     }
                 </a>
-                <a className="login" href="/login">
+                <div className="login" >
                     {userInfo ? (
                         <div className="loginName">
                             <a to="#">
@@ -50,11 +52,17 @@ const Header = () => {
                             </ul>
                         </div>
                     ) : (
-
-                            <i class="fas fa-sign-in-alt"> Log in </i>
+                            <div className="login">
+                                <a className="loginField" href="/login" >
+                                    <AssignmentIndIcon fontSize="small" /> Log in
+                                </a>
+                                <a className="signup" href="/signup">
+                                    <AddBoxIcon fontSize="small" /> Cadastre-se
+                                </a>
+                            </div>
                         )
                     }
-                </a>
+                </div>
             </div>
         </BrowserRouter>
     );

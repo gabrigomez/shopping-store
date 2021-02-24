@@ -17,8 +17,7 @@
     text-align: center;
 }
 
-.cart {
-    
+.cart {    
     text-decoration: none;
     color: #FFF;
     
@@ -43,32 +42,52 @@
     margin-left: 2px;
 }
 
-.login {
+.signup {
     text-decoration: none;
     color: gold;
-    
-    width: 65px;
-    height: 100%;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    margin-right: 50px;
+    font-size: 0.8rem;
+
 }
 
-.login:hover {
-    text-decoration: none;
-    color: gray;
-}
 
 .logo {
     width: 150px;
     height: 150px;
     
     display: flex;
-    margin-left: 100px;
-    
+    margin-left: 100px;    
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: 10px;
+}
+
+.loginField {
+    text-decoration: none;
+    color: gold;
+    font-size: 0.8rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    align-self: flex-start;
+    margin-bottom: 4px;    
+}
+
+.loginField:hover, .signup:hover {
+    text-decoration: none;
+    color: gray;
 }
 
 .loginName a {
