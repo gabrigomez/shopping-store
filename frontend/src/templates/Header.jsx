@@ -40,18 +40,21 @@ const Header = () => {
                     <img className="logo" src={logo} alt="logoMod" />
                 </a>
                 <a className="cart" href="/cartscreen">
-                    {cartItems.length > 0 ? (
-                        <div className="cartQtd">
-                            <IconButton aria-label="cart">
-                                <StyledBadge badgeContent={cartItems.length} color="secondary">
-                                    <ShoppingCartIcon className="cart" />
-                                </StyledBadge>
-                            </IconButton>
-                        </div>
-                    ) :
-                        <div>
-                            <ShoppingCartIcon /> Carrinho
-                        </div>
+                    {cartItems.length > 0 ?
+                        (
+                            <div className="cartQtd">
+                                <IconButton aria-label="cart">
+                                    <StyledBadge badgeContent={cartItems.length} color="secondary">
+                                        <ShoppingCartIcon className="cart" />
+                                    </StyledBadge>
+                                </IconButton>
+                            </div>
+                        ) : (
+
+                            <div>
+                                <ShoppingCartIcon /> Carrinho
+                            </div>
+                        )
                     }
                 </a>
                 <div className="login" >
