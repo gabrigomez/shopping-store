@@ -25,12 +25,14 @@ const CartScreen = (props) => {
         dispatch(removeFromCart(id))
     }
 
-    if (shippingAddress) {
-        props.history.push('/payment')
-    }
+    // if (shippingAddress) {
+    //     props.history.push('/payment')
+    // }
     const checkoutHandler = () => {
-        if (user) {
+        if (user && !shippingAddress) {
             props.history.push('/shipping')
+        } else if (user && shippingAddress) {
+            props.history.push('/payment')
         } else {
             props.history.push('/login')
         }
