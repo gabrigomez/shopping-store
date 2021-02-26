@@ -13,6 +13,8 @@ const CartScreen = (props) => {
     const cart = useSelector((state) => state.cart)
     const user = useSelector((state) => state.userSignin.userInfo)
     const { cartItems } = cart
+    const { shippingAddress } = cart
+
     useEffect(() => {
         if (productId) {
             dispatch(addToCart(productId, qtd))
@@ -23,12 +25,16 @@ const CartScreen = (props) => {
         dispatch(removeFromCart(id))
     }
 
+    if (shippingAddress) {
+        props.history.push('/payment')
+    }
     const checkoutHandler = () => {
         if (user) {
             props.history.push('/shipping')
         } else {
             props.history.push('/login')
         }
+        console.log(shippingAddress)
     }
 
     return (

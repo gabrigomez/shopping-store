@@ -8,6 +8,7 @@ import CartScreen from '../screens/CartScreen';
 import ShippingScreen from '../screens/ShippingScreen';
 import './Content.css'
 import SignUpScreen from '../screens/SignUpScreen';
+import PaymentScreen from '../screens/PaymentScreen';
 
 const Content = () => {
     return (
@@ -23,6 +24,7 @@ const Content = () => {
                         <Route path="/cartscreen" component={CartScreen}></Route>
                         <Route path="/shipping" component={ShippingScreen}></Route>
                         <Route path="/signup" component={SignUpScreen}></Route>
+                        <Route path="/payment" component={PaymentScreen}></Route>
                     </Switch>
                 </div>
             </div>
