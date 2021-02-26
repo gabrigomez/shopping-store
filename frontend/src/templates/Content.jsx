@@ -9,6 +9,7 @@ import ShippingScreen from '../screens/ShippingScreen';
 import './Content.css'
 import SignUpScreen from '../screens/SignUpScreen';
 import PaymentScreen from '../screens/PaymentScreen';
+import PlaceOrderScreen from '../screens/PlaceOrderScreen';
 
 const Content = () => {
     return (
@@ -25,6 +26,7 @@ const Content = () => {
                         <Route path="/shipping" component={ShippingScreen}></Route>
                         <Route path="/signup" component={SignUpScreen}></Route>
                         <Route path="/payment" component={PaymentScreen}></Route>
+                        <Route path="/placeOrder" component={PlaceOrderScreen}></Route>
                     </Switch>
                 </div>
             </div>
