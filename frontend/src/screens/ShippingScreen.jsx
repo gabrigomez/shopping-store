@@ -34,7 +34,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const ShippingScreen = (props) => {
-
     const classes = useStyles()
     const cart = useSelector((state) => state.cart)
     const user = useSelector((state) => state.userSignin.userInfo)

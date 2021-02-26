@@ -34,7 +34,7 @@ const CartScreen = (props) => {
         } else {
             props.history.push('/login')
         }
-        console.log(shippingAddress)
+
     }
 
     return (

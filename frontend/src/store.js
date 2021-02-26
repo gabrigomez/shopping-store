@@ -1,5 +1,6 @@
 import { applyMiddleware, createStore, compose, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
+import { paymentMethods } from './actions/cartActions.js';
 import { cartAddReducer } from './reducers/cartReducers.js'
 import { productDetailsReducer, productListReducer } from './reducers/productReducers.js'
 import { userSigninReducer, userSignupReducer } from './reducers/userReducers.js';
@@ -16,7 +17,8 @@ const initialState = {
             : [],
         shippingAddress: localStorage.getItem('shippingAddress')
             ? JSON.parse(localStorage.getItem('shippingAddress'))
-            : {}
+            : {},
+        paymentMethods: 'Paypal'
     },
 };
 
