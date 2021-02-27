@@ -26,13 +26,11 @@ const CartScreen = (props) => {
     }
 
     const checkoutHandler = () => {
-        //TODO : Verification of shipping and payment
         if (user) {
             props.history.push('/shipping')
         } else {
             props.history.push('/login')
         }
-
     }
 
     return (

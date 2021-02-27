@@ -36,6 +36,12 @@ const PlaceOrderScreen = (props) => {
     const user = useSelector((state) => state.userSignin.userInfo)
     const { shippingAddress } = cart
 
+    if (!user) {
+        props.history.push('/login')
+    } if (Object.keys(shippingAddress).length === 0) {
+        props.history.push('/shipping')
+    }
+
     const submitHandler = () => {
         // TODO
     }

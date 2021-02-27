@@ -48,6 +48,8 @@ const ShippingScreen = (props) => {
 
     if (!user) {
         props.history.push('/login')
+    } else if (Object.keys(shippingAddress).length > 0) {
+        props.history.push('/payment')
     }
 
     const submitHandler = (e) => {
