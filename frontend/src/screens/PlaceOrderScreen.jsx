@@ -58,11 +58,11 @@ const PlaceOrderScreen = (props) => {
                 </Typography>
             <Box display="flex" flexDirection="column" >
                 {cartItems.map((item) => (
-                    <Box display="flex">
+                    <Box display="flex" justifyContent="space-between" alignItems="center">
                         <Avatar src={item.image} alt={item.name} />
-                        <TextField label={item.name} />
-                        <TextField label={item.qtd} />
-                        <TextField label={item.price} />
+                        <Typography variant="h6" gutterBottom>{item.name}</Typography>
+                        <Typography>X{item.qtd} </Typography>
+                        <Typography> R${item.price}</Typography>
                     </Box>
                 ))}
             </Box>
