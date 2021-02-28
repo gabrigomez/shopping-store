@@ -2,13 +2,14 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { saveShippingAddress } from '../actions/cartActions';
 
+import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { Box } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -35,6 +36,7 @@ const PlaceOrderScreen = (props) => {
     const cart = useSelector((state) => state.cart)
     const user = useSelector((state) => state.userSignin.userInfo)
     const { shippingAddress } = cart
+    const { cartItems } = cart
 
     if (!user) {
         props.history.push('/login')
@@ -47,46 +49,27 @@ const PlaceOrderScreen = (props) => {
     }
 
     return (
-        <Container component="main" maxWidth="xs">
+        <Container>
             <div className="orderBar">
                 <LinearProgress variant="determinate" value={100} />
             </div>
-            <CssBaseline />
             <Typography align="center" component="h1" variant="h6">
                 Informações do seu pedido
+                </Typography>
+            <Box display="flex" flexDirection="column" >
+                {cartItems.map((item) => (
+                    <Box display="flex">
+                        <Avatar src={item.image} alt={item.name} />
+                        <TextField label={item.name} />
+                        <TextField label={item.qtd} />
+                        <TextField label={item.price} />
+                    </Box>
+                ))}
+            </Box>
+            <Typography align="center" component="h1" variant="h5">
+                Subtotal ({cartItems.reduce((a, c) => a + c.qtd, 0)} items) : R$
+                {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
             </Typography>
-            <TextField
-                variant="outlined"
-                margin="normal"
-                disabled
-                fullWidth
-                autoFocus
-                placeholder={shippingAddress.fullName}
-            />
-            <TextField
-                variant="outlined"
-                margin="normal"
-                disabled
-                fullWidth
-                autoFocus
-                placeholder={shippingAddress.address}
-            />
-            <TextField
-                variant="outlined"
-                margin="normal"
-                disabled
-                fullWidth
-                autoFocus
-                placeholder={shippingAddress.city}
-            />
-            <TextField
-                variant="outlined"
-                margin="normal"
-                disabled
-                fullWidth
-                autoFocus
-                placeholder={shippingAddress.postalCode}
-            />
             <Button
                 type="submit"
                 fullWidth
@@ -96,7 +79,7 @@ const PlaceOrderScreen = (props) => {
                 onClick={submitHandler}
             >
                 FINALIZAR PEDIDO!
-                    </Button>
+            </Button>
         </Container>
 
     );
