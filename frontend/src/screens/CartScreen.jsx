@@ -12,6 +12,11 @@ import Select from '@material-ui/core/Select';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import FolderIcon from '@material-ui/icons/Folder';
+import ListItemText from '@material-ui/core/ListItemText';
+
+
 const CartScreen = (props) => {
     const productId = props.match.params.id
     const qtd = props.location.search ? Number(props.location.search.split('=')[1]) : 1
@@ -52,11 +57,11 @@ const CartScreen = (props) => {
                     </Message>
 
                 ) : (
-                        <Box display="flex" flexDirection="column" width="100%">
+                        <Box width="100%">
                             {cartItems.map((item) => (
-                                <Box key={item.product} display="flex" alignItems="center" justifyContent="center" >
+                                <ListItem key={item.product} >
                                     <Avatar src={item.image} alt={item.name} />
-                                    <Typography variant="button" gutterBottom>{item.name}</Typography>
+                                    <ListItemText primary={item.name} />
                                     <Select
                                         className="rowProduct"
                                         value={item.qtd}
@@ -80,11 +85,10 @@ const CartScreen = (props) => {
                                             <i class="fas fa-trash"></i>
                                         </button>
                                     </div>
-
-                                </Box>
-
+                                </ListItem>
                             ))}
                         </Box>
+
                     )}
             </div>
             <div className="subtotal">
