@@ -5,6 +5,13 @@ import Message from '../components/Message';
 import { Link } from 'react-router-dom'
 import './CartScreen.css'
 
+import { Box } from '@material-ui/core';
+import Avatar from '@material-ui/core/Avatar';
+import Typography from '@material-ui/core/Typography';
+import Select from '@material-ui/core/Select';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+
 const CartScreen = (props) => {
     const productId = props.match.params.id
     const qtd = props.location.search ? Number(props.location.search.split('=')[1]) : 1
@@ -45,46 +52,39 @@ const CartScreen = (props) => {
                     </Message>
 
                 ) : (
-                        <ul>
+                        <Box display="flex" flexDirection="column" width="100%">
                             {cartItems.map((item) => (
-                                <div className="productOptions">
-                                    <li key={item.product}>
-                                        <div>
-                                            <img src={item.image} alt={item.name}></img>
-                                        </div>
-                                        <div className="rowName">
-                                            <Link to={`product/${item.product}`}>{item.name}</Link>
-                                        </div>
+                                <Box key={item.product} display="flex" alignItems="center" justifyContent="center" >
+                                    <Avatar src={item.image} alt={item.name} />
+                                    <Typography variant="button" gutterBottom>{item.name}</Typography>
+                                    <Select
+                                        className="rowProduct"
+                                        value={item.qtd}
+                                        onChange={(e) =>
+                                            dispatch(addToCart(item.product, Number(e.target.value))
+                                            )
+                                        }
+                                    >
+                                        {[...Array(item.inStock).keys()].map((x) => (
+                                            <option key={x + 1} value={x + 1}>
+                                                {x + 1}
+                                            </option>
+                                        ))}
+                                    </Select>
 
-                                        <div className="rowQtd">
-                                            <select
-                                                className="rowProduct"
-                                                value={item.qtd}
-                                                onChange={(e) =>
-                                                    dispatch(addToCart(item.product, Number(e.target.value))
-                                                    )
-                                                }
-                                            >
-                                                {[...Array(item.inStock).keys()].map((x) => (
-                                                    <option key={x + 1} value={x + 1}>
-                                                        {x + 1}
-                                                    </option>
-                                                ))}
-                                            </select>
-                                        </div>
-                                        <div className="rowPrice">R${item.price}</div>
-                                        <div className="rowRemove">
-                                            <button
-                                                type="button"
-                                                onClick={() => removeFromCartHandler(item.product)}>
-                                                <i class="fas fa-trash"></i>
-                                            </button>
-                                        </div>
+                                    <Box className="rowPrice">R${item.price}</Box>
+                                    <div className="rowRemove">
+                                        <button
+                                            type="button"
+                                            onClick={() => removeFromCartHandler(item.product)}>
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                    </div>
 
-                                    </li>
-                                </div>
+                                </Box>
+
                             ))}
-                        </ul>
+                        </Box>
                     )}
             </div>
             <div className="subtotal">
