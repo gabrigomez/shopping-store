@@ -56,20 +56,24 @@ const PlaceOrderScreen = (props) => {
             <Typography align="center" component="h1" variant="h6">
                 Informações do seu pedido
                 </Typography>
+            <div className="orderBar">
+                <LinearProgress variant="determinate" value={100} />
+            </div>
             <Box display="flex" flexDirection="column" >
                 {cartItems.map((item) => (
-                    <Box display="flex" justifyContent="space-between" alignItems="center">
+                    <Box display="flex" justifyContent="space-around" alignItems="center">
                         <Avatar src={item.image} alt={item.name} />
-                        <Typography variant="h6" gutterBottom>{item.name}</Typography>
-                        <Typography>X{item.qtd} </Typography>
+                        <Typography variant="button" display="block" gutterBottom>{item.name}</Typography>
+                        <Typography>x{item.qtd} </Typography>
                         <Typography> R${item.price}</Typography>
                     </Box>
                 ))}
             </Box>
-            <Typography align="center" component="h1" variant="h5">
-                Subtotal ({cartItems.reduce((a, c) => a + c.qtd, 0)} items) : R$
-                {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
+            <br />
+            <Typography align="center" component="h1" variant="h4" >
+                Total: R$ {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
             </Typography>
+            <br />
             <Button
                 type="submit"
                 fullWidth
