@@ -106,7 +106,7 @@ const CartScreen = (props) => {
                             onClick={checkoutHandler}
                             disabled={cartItems.length === 0}>
                             Ir para o pagamento
-                            </button>
+                        </button>
                     </li>
                 </ul>
             </div>
