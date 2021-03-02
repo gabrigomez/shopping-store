@@ -61,9 +61,8 @@ const CartScreen = (props) => {
                             {cartItems.map((item) => (
                                 <ListItem key={item.product} >
                                     <Avatar src={item.image} alt={item.name} />
-                                    <ListItemText primary={item.name} />
+                                    <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
                                     <Select
-                                        className="rowProduct"
                                         value={item.qtd}
                                         onChange={(e) =>
                                             dispatch(addToCart(item.product, Number(e.target.value))
@@ -77,7 +76,7 @@ const CartScreen = (props) => {
                                         ))}
                                     </Select>
 
-                                    <Box className="rowPrice">R${item.price}</Box>
+                                    <Box className="rowPrice">R${item.price * item.qtd}</Box>
                                     <div className="rowRemove">
                                         <button
                                             type="button"

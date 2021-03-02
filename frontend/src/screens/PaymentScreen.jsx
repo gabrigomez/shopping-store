@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { savePaymentMethods } from '../actions/cartActions';
 
 
+
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -24,6 +25,9 @@ const useStyles = makeStyles((theme) => ({
     formControl: {
         margin: theme.spacing(1),
         minWidth: 120,
+        display: 'flex',
+        marginBottom: '25px'
+
     },
 }));
 
@@ -79,6 +83,7 @@ const PaymentScreen = (props) => {
             <FormControl className={classes.formControl}>
                 <InputLabel id="demo-controlled-open-select-label">Pagamento</InputLabel>
                 <Select
+                    className="selectPayment"
                     labelId="payment"
                     id="payment"
                     open={open}

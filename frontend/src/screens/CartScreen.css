@@ -37,6 +37,10 @@ img {
     
 }
 
+.subtotal h2 {
+    font-weight: bold;
+}
+
 .productOptions {
     display: flex;
     justify-content: space-evenly
@@ -63,6 +67,12 @@ img {
     margin-right: 10px;
 }
 
+.rowPrice {
+    padding-left: 20px;
+    padding-right: 5px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
 .fas.fa-trash {
     color: rgba(216, 5, 5, 0.74);
 }
@@ -71,4 +81,7 @@ img {
     margin-right: 15px;
     color: rgba(255, 0, 0, 0.76);
 }
+
+
+
 
