@@ -48,7 +48,7 @@ const PlaceOrderScreen = (props) => {
     }
 
     return (
-        <Box width="500px">
+        <Box>
             <div className="orderBar">
                 <LinearProgress variant="determinate" value={100} />
             </div>
@@ -60,22 +60,36 @@ const PlaceOrderScreen = (props) => {
             <div className="orderBar">
                 <LinearProgress variant="determinate" value={100} />
             </div>
-            <Box display="flex" flexDirection="column" margin="20px">
-                {cartItems.map((item) => (
-                    <Box display="flex" justifyContent="space-around" alignItems="center">
-                        <Avatar src={item.image} alt={item.name} />
-                        <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
-                        <ListItemText primary={`x${item.qtd}`} />
-                        <Typography variant="h6"> R${item.price * item.qtd}</Typography>
+            <Box width="800px" display="flex" justifyContent="space-between">
+                <Box>
+                    <Typography align="center" component="h1" variant="h6"> Itens</Typography>
+                    <Box display="flex" flexDirection="column" margin="10px">
+                        {cartItems.map((item) => (
+                            <Box display="flex" justifyContent="space-around" alignItems="center">
+                                <Avatar src={item.image} alt={item.name} />
+                                <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
+                                <ListItemText primary={`x${item.qtd}`} />
+                                <Typography variant="h6"> R${item.price * item.qtd}</Typography>
+                            </Box>
+                        ))}
                     </Box>
-                ))}
+                </Box>
+                <Box>
+                    <Typography align="center" component="h1" variant="h6"> Comprador</Typography>
+                    <Box display="flex" flexDirection="column" justifyContent="space-around" alignItems="center" margin="10px">
+                        <Typography variant="h6"> {shippingAddress.fullName}</Typography>
+                        <Typography variant="subtitle1"> {shippingAddress.address}</Typography>
+                        <Typography variant="subtitle1"> {shippingAddress.city}</Typography>
+                        <Typography variant="subtitle1"> {shippingAddress.postalCode}</Typography>
+                    </Box>
+                </Box>
+
             </Box>
             <Typography align="center" variant="h4" >
                 <Box>
                     Total: R$ {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
                 </Box>
             </Typography>
-
             <Button
                 type="submit"
                 fullWidth
@@ -84,7 +98,7 @@ const PlaceOrderScreen = (props) => {
                 className={classes.submit}
                 onClick={submitHandler}
             >
-                FINALIZAR PEDIDO!
+                FINALIZAR PEDIDO com {cart.paymentMethods}
             </Button>
         </Box>
 
