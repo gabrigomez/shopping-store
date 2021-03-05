@@ -7,13 +7,8 @@ import './CartScreen.css'
 
 import { Box } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
-import Typography from '@material-ui/core/Typography';
 import Select from '@material-ui/core/Select';
-import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import FolderIcon from '@material-ui/icons/Folder';
 import ListItemText from '@material-ui/core/ListItemText';
 
 
@@ -25,7 +20,7 @@ const CartScreen = (props) => {
     const cart = useSelector((state) => state.cart)
     const user = useSelector((state) => state.userSignin.userInfo)
     const { cartItems } = cart
-    const { shippingAddress } = cart
+
 
     useEffect(() => {
         if (productId) {

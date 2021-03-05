@@ -4,12 +4,11 @@ import { saveShippingAddress } from '../actions/cartActions';
 
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
-import TextField from '@material-ui/core/TextField';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Container from '@material-ui/core/Container';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Box } from '@material-ui/core';
+import ListItemText from '@material-ui/core/ListItemText';
 
 const useStyles = makeStyles((theme) => ({
     paper: {
@@ -49,31 +48,34 @@ const PlaceOrderScreen = (props) => {
     }
 
     return (
-        <Container>
+        <Box width="500px">
             <div className="orderBar">
                 <LinearProgress variant="determinate" value={100} />
             </div>
-            <Typography align="center" component="h1" variant="h6">
-                Informações do seu pedido
-                </Typography>
+            <Typography align="center" component="h1" variant="h5">
+                <Box>
+                    Informações do seu pedido
+                </Box>
+            </Typography>
             <div className="orderBar">
                 <LinearProgress variant="determinate" value={100} />
             </div>
-            <Box display="flex" flexDirection="column" >
+            <Box display="flex" flexDirection="column" margin="20px">
                 {cartItems.map((item) => (
                     <Box display="flex" justifyContent="space-around" alignItems="center">
                         <Avatar src={item.image} alt={item.name} />
-                        <Typography variant="button" display="block" gutterBottom>{item.name}</Typography>
-                        <Typography>x{item.qtd} </Typography>
-                        <Typography> R${item.price}</Typography>
+                        <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
+                        <ListItemText primary={`x${item.qtd}`} />
+                        <Typography variant="h6"> R${item.price * item.qtd}</Typography>
                     </Box>
                 ))}
             </Box>
-            <br />
-            <Typography align="center" component="h1" variant="h4" >
-                Total: R$ {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
+            <Typography align="center" variant="h4" >
+                <Box>
+                    Total: R$ {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
+                </Box>
             </Typography>
-            <br />
+
             <Button
                 type="submit"
                 fullWidth
@@ -84,7 +86,7 @@ const PlaceOrderScreen = (props) => {
             >
                 FINALIZAR PEDIDO!
             </Button>
-        </Container>
+        </Box>
 
     );
 };
