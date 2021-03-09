@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 import { savePaymentMethods } from '../actions/cartActions';
 
-
-
 import Button from '@material-ui/core/Button';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
-
 import LinearProgress from '@material-ui/core/LinearProgress';
+import { theme } from '../utils/materialUI.jsx'
+
+
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -73,43 +73,45 @@ const PaymentScreen = (props) => {
 
     return (
         <Container component="main" maxWidth="xs">
-            <div className="orderBar">
-                <LinearProgress variant="determinate" value={75} />
-            </div>
-            <CssBaseline />
-            <Typography align="center" component="h1" variant="h6">
-                Selecione a forma de pagamento
+            <ThemeProvider theme={theme}>
+                <div className="orderBar">
+                    <LinearProgress variant="determinate" value={75} />
+                </div>
+                <CssBaseline />
+                <Typography align="center" component="h1" variant="h6">
+                    Selecione a forma de pagamento
             </Typography>
-            <FormControl className={classes.formControl}>
-                <InputLabel id="demo-controlled-open-select-label">Pagamento</InputLabel>
-                <Select
-                    className="selectPayment"
-                    labelId="payment"
-                    id="payment"
-                    open={open}
-                    onClose={handleClose}
-                    onOpen={handleOpen}
-                    value={payment}
-                    onChange={handleChange}
+                <FormControl className={classes.formControl}>
+                    <InputLabel id="demo-controlled-open-select-label">Pagamento</InputLabel>
+                    <Select
+                        className="selectPayment"
+                        labelId="payment"
+                        id="payment"
+                        open={open}
+                        onClose={handleClose}
+                        onOpen={handleOpen}
+                        value={payment}
+                        onChange={handleChange}
+                    >
+                        <MenuItem value="">
+                            <em>Selecione</em>
+                        </MenuItem>
+                        <MenuItem value={'PayPal'}>PayPal</MenuItem>
+                        <MenuItem value={'Mercado Pago'}>Mercado Pago</MenuItem>
+                        <MenuItem value={'PagSeguro'}>PagSeguro</MenuItem>
+                    </Select>
+                </FormControl>
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    color="primary"
+                    className={classes.submit}
+                    onClick={submitHandler}
                 >
-                    <MenuItem value="">
-                        <em>Selecione</em>
-                    </MenuItem>
-                    <MenuItem value={'PayPal'}>PayPal</MenuItem>
-                    <MenuItem value={'Mercado Pago'}>Mercado Pago</MenuItem>
-                    <MenuItem value={'PagSeguro'}>PagSeguro</MenuItem>
-                </Select>
-            </FormControl>
-            <Button
-                type="submit"
-                fullWidth
-                variant="contained"
-                color="primary"
-                className={classes.submit}
-                onClick={submitHandler}
-            >
-                IR PARA PAGAMENTO
-            </Button>
+                    IR PARA PAGAMENTO
+                </Button>
+            </ThemeProvider>
         </Container>
     );
 };

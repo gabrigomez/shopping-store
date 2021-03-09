@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
-
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
@@ -9,17 +8,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import { Box, ThemeProvider, useTheme } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
-import { createMuiTheme } from '@material-ui/core/styles';
-
-import { yellow } from '@material-ui/core/colors'
-
-const theme = createMuiTheme({
-    palette: {
-        primary: yellow
-    }
-});
-
-
+import { theme } from '../utils/materialUI.jsx'
 
 const useStyles = makeStyles((theme) => ({
     paper: {
