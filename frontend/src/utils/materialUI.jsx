@@ -16,10 +16,9 @@ export const paymentStyles = makeStyles((theme) => ({
     },
     formControl: {
         margin: theme.spacing(1),
-        minWidth: 120,
+        minWidth: '120px',
         display: 'flex',
         marginBottom: '25px'
-
     },
 }));
 

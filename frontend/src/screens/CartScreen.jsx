@@ -5,11 +5,12 @@ import Message from '../components/Message';
 import { Link } from 'react-router-dom'
 import './CartScreen.css'
 
-import { Box } from '@material-ui/core';
+import { Box, Button, ThemeProvider } from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Select from '@material-ui/core/Select';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
+import { theme } from '../utils/materialUI';
 
 
 const CartScreen = (props) => {
@@ -42,16 +43,17 @@ const CartScreen = (props) => {
 
     return (
         <div className="cartContent">
-            <div className="productCart">
-                <h1> Carrinho de compras </h1>
-                {cartItems.length === 0 ? (
-                    <Message>
-                        O carrinho está vazio. <br />
-                        <i class="fas fa-backward"></i>
-                        <Link to="/"> Voltar pra o Início</Link>
-                    </Message>
+            <ThemeProvider theme={theme}>
+                <div className="productCart">
+                    <h1> Carrinho de compras </h1>
+                    {cartItems.length === 0 ? (
+                        <Message>
+                            O carrinho está vazio. <br />
+                            <i class="fas fa-backward"></i>
+                            <Link to="/"> Voltar pra o Início</Link>
+                        </Message>
 
-                ) : (
+                    ) : (
                         <Box width="100%">
                             {cartItems.map((item) => (
                                 <ListItem key={item.product} >
@@ -84,26 +86,29 @@ const CartScreen = (props) => {
                         </Box>
 
                     )}
-            </div>
-            <div className="subtotal">
-                <ul>
-                    <li>
-                        <h2>
-                            Subtotal ({cartItems.reduce((a, c) => a + c.qtd, 0)} items) : R$
+                </div>
+                <div className="subtotal">
+                    <ul>
+                        <li>
+                            <h2>
+                                Subtotal ({cartItems.reduce((a, c) => a + c.qtd, 0)} items) : R$
                                 {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
-                        </h2>
-                    </li>
-                    <li>
-                        <button
-                            type="button"
-                            className="btn"
-                            onClick={checkoutHandler}
-                            disabled={cartItems.length === 0}>
-                            Ir para o pagamento
-                        </button>
-                    </li>
-                </ul>
-            </div>
+                            </h2>
+                        </li>
+                        <li>
+                            <Button
+                                type="button"
+                                className="btn"
+                                variant="contained"
+                                color="primary"
+                                onClick={checkoutHandler}
+                                disabled={cartItems.length === 0}>
+                                Ir para o pagamento
+                        </Button>
+                        </li>
+                    </ul>
+                </div>
+            </ThemeProvider>
         </div>
     );
 };

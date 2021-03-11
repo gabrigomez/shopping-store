@@ -7,7 +7,7 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
@@ -18,14 +18,15 @@ import { theme, paymentStyles } from '../utils/materialUI.jsx'
 
 const PaymentScreen = (props) => {
     const classes = paymentStyles()
-
     const cart = useSelector((state) => state.cart)
     const user = useSelector((state) => state.userSignin.userInfo)
+
     const { paymentMethods } = cart
     const { shippingAddress } = cart
 
     const [payment, setPayment] = useState(paymentMethods.payment)
     const [open, setOpen] = useState(false)
+
     const dispacth = useDispatch()
 
     if (!user) {
@@ -64,13 +65,14 @@ const PaymentScreen = (props) => {
                 <CssBaseline />
                 <Typography align="center" component="h1" variant="h6">
                     Selecione a forma de pagamento
-            </Typography>
+                </Typography>
                 <FormControl className={classes.formControl}>
                     <InputLabel id="demo-controlled-open-select-label">Pagamento</InputLabel>
                     <Select
                         className="selectPayment"
                         labelId="payment"
                         id="payment"
+                        fullWidth
                         open={open}
                         onClose={handleClose}
                         onOpen={handleOpen}

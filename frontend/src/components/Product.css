@@ -8,14 +8,14 @@
 
 .productContainer {
     border-radius: 0.5rem;
-    border: solid 0.03rem rgba(247, 243, 24, 0.5);
+    border: solid 0.03rem #ffeb3b94;
     margin: 5px;
     box-shadow: 3px 1px 1px rgba(0, 0, 0, 0.034); 
 
 }
 
 .productContainer:hover {
-    box-shadow: 3px 1px 1px rgba(206, 209, 3, 0.301); 
+    box-shadow: 3px 1px 1px #ffeb3b54; 
 }
 
 .products img {
@@ -37,7 +37,8 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    color: goldenrod
+    color: #d8c414;
+    
 }
 .productDescription {
     display: flex;
