@@ -13,35 +13,19 @@ import MenuItem from '@material-ui/core/MenuItem';
 import FormControl from '@material-ui/core/FormControl';
 import Select from '@material-ui/core/Select';
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { theme } from '../utils/materialUI.jsx'
+import { theme, paymentStyles } from '../utils/materialUI.jsx'
 
-
-
-const useStyles = makeStyles((theme) => ({
-    button: {
-        display: 'block',
-        marginTop: theme.spacing(2),
-    },
-    formControl: {
-        margin: theme.spacing(1),
-        minWidth: 120,
-        display: 'flex',
-        marginBottom: '25px'
-
-    },
-}));
 
 const PaymentScreen = (props) => {
-    const classes = useStyles()
+    const classes = paymentStyles()
+
     const cart = useSelector((state) => state.cart)
     const user = useSelector((state) => state.userSignin.userInfo)
-
     const { paymentMethods } = cart
     const { shippingAddress } = cart
 
     const [payment, setPayment] = useState(paymentMethods.payment)
     const [open, setOpen] = useState(false)
-
     const dispacth = useDispatch()
 
     if (!user) {

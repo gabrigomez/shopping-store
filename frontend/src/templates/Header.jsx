@@ -73,15 +73,15 @@ const Header = () => {
                             </ul>
                         </div>
                     ) : (
-                            <div className="login">
-                                <a className="loginField" href="/login" >
-                                    <AssignmentIndIcon fontSize="small" /> Log in
+                        <div className="login">
+                            <a className="loginField" href="/login" >
+                                <AssignmentIndIcon fontSize="small" /> Log in
                                 </a>
-                                <a className="signup" href="/signup">
-                                    <AddBoxIcon fontSize="small" /> Cadastre-se
+                            <a className="signup" href="/signup">
+                                <AddBoxIcon fontSize="small" /> Cadastre-se
                                 </a>
-                            </div>
-                        )
+                        </div>
+                    )
                     }
                 </div>
             </div>
