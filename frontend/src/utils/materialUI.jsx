@@ -1,6 +1,7 @@
-import { createMuiTheme } from '@material-ui/core/styles';
+import { createMuiTheme, withStyles } from '@material-ui/core/styles';
 import { yellow } from '@material-ui/core/colors'
 import { makeStyles } from '@material-ui/core/styles';
+import Badge from '@material-ui/core/Badge';
 
 
 export const theme = createMuiTheme({
@@ -8,6 +9,13 @@ export const theme = createMuiTheme({
         primary: yellow
     }
 });
+
+export const StyledBadge = withStyles((theme) => ({
+    badge: {
+        right: 40,
+        top: 7,
+    },
+}))(Badge);
 
 export const paymentStyles = makeStyles((theme) => ({
     button: {

@@ -16,14 +16,20 @@ footer.footer {
 span {
     font-size: 0.7rem;
     padding-right: 20px;
+    color: #b2a429
 }
 
 i {
     font-size: 15px;
 }
 
+i.fas.fa-laptop-code {
+    color: blanchedalmond;
+}
+
 i.fab.fa-facebook,
 i.fab.fa-instagram {
     font-size: 20px;
     padding-right: 20px;
+    color: #b2a429;
 }

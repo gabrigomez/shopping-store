@@ -6,13 +6,14 @@ import './Header.css'
 import logo from '../assets/logoMod.png'
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AddBoxIcon from '@material-ui/icons/AddBox';
-import Badge from '@material-ui/core/Badge';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { withStyles } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core/styles';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/userActions';
+import { theme, StyledBadge } from '../utils/materialUI';
+
 
 
 const Header = () => {
@@ -26,13 +27,6 @@ const Header = () => {
         dispatch(signout())
     }
 
-    const StyledBadge = withStyles((theme) => ({
-        badge: {
-            right: 40,
-            top: 7,
-        }
-    }))(Badge);
-
     return (
         <BrowserRouter>
             <div className="header">
@@ -44,9 +38,11 @@ const Header = () => {
                         (
                             <div className="cartQtd">
                                 <IconButton aria-label="cart">
-                                    <StyledBadge badgeContent={cartItems.length} color="secondary">
-                                        <ShoppingCartIcon className="cart" />
-                                    </StyledBadge>
+                                    <ThemeProvider theme={theme}>
+                                        <StyledBadge badgeContent={cartItems.length} color="primary">
+                                            <ShoppingCartIcon className="cart" />
+                                        </StyledBadge>
+                                    </ThemeProvider>
                                 </IconButton>
                             </div>
                         ) : (

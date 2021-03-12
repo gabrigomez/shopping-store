@@ -4,8 +4,8 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import './Footer.css'
 
 const Footer = () => {
-    return (        
-        <footer className="footer">            
+    return (
+        <footer className="footer">
             <div>
                 <a className="linkFooter" href="https://github.com/gabrigomez">
                     <i class="fas fa-laptop-code"></i>
@@ -16,7 +16,7 @@ const Footer = () => {
                 <i class="fab fa-facebook"></i>
                 <i class="fab fa-instagram"></i>
             </div>
-        </footer>        
+        </footer>
     );
 };
 
