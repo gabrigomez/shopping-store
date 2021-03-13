@@ -13,6 +13,8 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/userActions';
 import { theme, StyledBadge } from '../utils/materialUI';
+import { Typography } from '@material-ui/core';
+import HomeIcon from '@material-ui/icons/Home';
 
 
 
@@ -48,7 +50,12 @@ const Header = () => {
                         ) : (
 
                             <div>
-                                <ShoppingCartIcon /> Carrinho
+                                <ShoppingCartIcon />
+                                <ThemeProvider theme={theme}>
+                                    <Typography color="primary" >
+                                        Carrinho
+                                    </Typography>
+                                </ThemeProvider>
                             </div>
                         )
                     }
@@ -57,6 +64,7 @@ const Header = () => {
                     {userInfo ? (
                         <div className="loginName">
                             <a to="#">
+                                <HomeIcon fontSize="small" />
                                 Fala, {userInfo.name}!
                             </a>
                             <ul className="logout">
