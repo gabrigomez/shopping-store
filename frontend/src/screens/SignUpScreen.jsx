@@ -17,8 +17,9 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import Typography from '@material-ui/core/Typography';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import { theme } from '../utils/materialUI.jsx'
 
 import '../tailwind.css'
 
@@ -75,86 +76,88 @@ const SignUpScreen = (props) => {
     }, [props.history, redirect, userInfo])
 
     return (
-        <Container component="main" maxWidth="xs">
-            {loading && <Loading></Loading>}
-            {error && <Message>{error}</Message>}
-            <CssBaseline />
-            <div className={classes.paper}>
-                <Avatar className={classes.avatar}>
-                    <ArrowForwardIcon />
-                </Avatar>
-                <Typography component="h1" variant="h5">
-                    Sign Up
+        <ThemeProvider theme={theme}>
+            <Container component="main" maxWidth="xs">
+                {loading && <Loading></Loading>}
+                {error && <Message>{error}</Message>}
+                <CssBaseline />
+                <div className={classes.paper}>
+                    <Avatar className={classes.avatar}>
+                        <ArrowForwardIcon />
+                    </Avatar>
+                    <Typography component="h1" variant="h5">
+                        Sign Up
                 </Typography>
-                <form className={classes.form} noValidate>
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="name"
-                        label="Digite seu nome"
-                        name="name"
-                        autoComplete="name"
-                        autoFocus
-                        onChange={(e) => setName(e.target.value)}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="email"
-                        label="Endereço de e-mail"
-                        name="email"
-                        autoComplete="email"
-                        autoFocus
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        id="confirmEmail"
-                        label="Confirme seu e-mail"
-                        name="confirmEmail"
-                        autoComplete="confirmEmail"
-                        autoFocus
-                        onChange={(e) => setConfirmEmail(e.target.value)}
-                    />
-                    <TextField
-                        variant="outlined"
-                        margin="normal"
-                        required
-                        fullWidth
-                        name="password"
-                        label="Senha"
-                        type="password"
-                        id="password"
-                        autoComplete="current-password"
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    <Button
-                        type="submit"
-                        fullWidth
-                        variant="contained"
-                        color="primary"
-                        className={classes.submit}
-                        onClick={submitHandler}
-                    >
-                        Entrar
+                    <form className={classes.form} noValidate>
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="name"
+                            label="Digite seu nome"
+                            name="name"
+                            autoComplete="name"
+                            autoFocus
+                            onChange={(e) => setName(e.target.value)}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="email"
+                            label="Endereço de e-mail"
+                            name="email"
+                            autoComplete="email"
+                            autoFocus
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            id="confirmEmail"
+                            label="Confirme seu e-mail"
+                            name="confirmEmail"
+                            autoComplete="confirmEmail"
+                            autoFocus
+                            onChange={(e) => setConfirmEmail(e.target.value)}
+                        />
+                        <TextField
+                            variant="outlined"
+                            margin="normal"
+                            required
+                            fullWidth
+                            name="password"
+                            label="Senha"
+                            type="password"
+                            id="password"
+                            autoComplete="current-password"
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <Button
+                            type="submit"
+                            fullWidth
+                            variant="contained"
+                            color="primary"
+                            className={classes.submit}
+                            onClick={submitHandler}
+                        >
+                            Entrar
                     </Button>
-                    <Grid justify="center" container>
-                        <Grid item>
-                            <Link href="/login" variant="body2">
-                                {"Já possui conta? Entre aqui!"}
-                            </Link>
+                        <Grid justify="center" container>
+                            <Grid item>
+                                <Link href="/login" variant="body2" color="primary">
+                                    {"Já possui conta? Entre aqui!"}
+                                </Link>
+                            </Grid>
                         </Grid>
-                    </Grid>
-                </form>
-            </div>
-        </Container>
+                    </form>
+                </div>
+            </Container>
+        </ThemeProvider>
     );
 };
 

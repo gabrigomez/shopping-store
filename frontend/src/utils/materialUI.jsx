@@ -1,12 +1,13 @@
 import { createMuiTheme, withStyles } from '@material-ui/core/styles';
-import { yellow } from '@material-ui/core/colors'
+import { grey, yellow } from '@material-ui/core/colors'
 import { makeStyles } from '@material-ui/core/styles';
 import Badge from '@material-ui/core/Badge';
 
 
 export const theme = createMuiTheme({
     palette: {
-        primary: yellow
+        primary: yellow,
+        secondary: grey['#212121']
     }
 });
 
