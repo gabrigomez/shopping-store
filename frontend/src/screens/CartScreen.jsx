@@ -5,10 +5,19 @@ import Message from '../components/Message';
 import { Link } from 'react-router-dom'
 import './CartScreen.css'
 
-import { Box, Button, ThemeProvider } from '@material-ui/core';
+import {
+    Button,
+    Grid,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    ThemeProvider
+} from '@material-ui/core';
 import Avatar from '@material-ui/core/Avatar';
 import Select from '@material-ui/core/Select';
-import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import { theme } from '../utils/materialUI';
 
@@ -52,38 +61,59 @@ const CartScreen = (props) => {
                             <i class="fas fa-backward"></i>
                             <Link to="/"> Voltar pra o Início</Link>
                         </Message>
-
                     ) : (
-                        <Box width="100%">
-                            {cartItems.map((item) => (
-                                <ListItem key={item.product} >
-                                    <Avatar src={item.image} alt={item.name} />
-                                    <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
-                                    <Select
-                                        value={item.qtd}
-                                        onChange={(e) =>
-                                            dispatch(addToCart(item.product, Number(e.target.value))
-                                            )
-                                        }
-                                    >
-                                        {[...Array(item.inStock).keys()].map((x) => (
-                                            <option key={x + 1} value={x + 1}>
-                                                {x + 1}
-                                            </option>
-                                        ))}
-                                    </Select>
-
-                                    <Box className="rowPrice">R${item.price * item.qtd}</Box>
-                                    <div className="rowRemove">
-                                        <button
-                                            type="button"
-                                            onClick={() => removeFromCartHandler(item.product)}>
-                                            <i class="fas fa-trash"></i>
-                                        </button>
-                                    </div>
-                                </ListItem>
-                            ))}
-                        </Box>
+                        <Grid className="productCart" container spacing={1} alignContent="center">
+                            <Grid item md={9}>
+                                <TableContainer >
+                                    <Table aria-label="Orders">
+                                        <TableHead>
+                                            <TableRow>
+                                                <TableCell>Produto</TableCell>
+                                                <TableCell align="right">Quantidade</TableCell>
+                                                <TableCell align="right">Preço</TableCell>
+                                            </TableRow>
+                                        </TableHead>
+                                        <TableBody>
+                                            {cartItems.map((item) => (
+                                                <TableRow key={item.product} >
+                                                    <TableCell component="th" scope="row" align="left">
+                                                        <Avatar src={item.image} alt={item.name} />
+                                                        <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        <Select
+                                                            value={item.qtd}
+                                                            onChange={(e) =>
+                                                                dispatch(addToCart(item.product, Number(e.target.value))
+                                                                )
+                                                            }
+                                                        >
+                                                            {[...Array(item.inStock).keys()].map((x) => (
+                                                                <option key={x + 1} value={x + 1}>
+                                                                    {x + 1}
+                                                                </option>
+                                                            ))}
+                                                        </Select>
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        R${item.price * item.qtd}
+                                                    </TableCell>
+                                                    <TableCell align="right">
+                                                        <div className="rowRemove">
+                                                            <button
+                                                                type="button"
+                                                                onClick={() => removeFromCartHandler(item.product)}>
+                                                                <i class="fas fa-trash"></i>
+                                                            </button>
+                                                        </div>
+                                                    </TableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                            </Grid>
+                        </Grid>
 
                     )}
                 </div>

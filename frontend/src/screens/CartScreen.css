@@ -22,12 +22,12 @@ button.btn {
     justify-content: center;
     align-items: flex-start;
 
-    width: 550px;
+    width: 650px;
 
-    border-radius: 0.5rem;
+    /* border-radius: 0.5rem;
     border: solid 0.03rem rgba(0, 0, 0, 0.164);
     margin: 5px;
-    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.096); 
+    box-shadow: 2px 1px 1px rgba(0, 0, 0, 0.096);  */
 
 }
 
