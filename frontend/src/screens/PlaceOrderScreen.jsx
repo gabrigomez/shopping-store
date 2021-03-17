@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
 
 import Avatar from '@material-ui/core/Avatar';
@@ -8,6 +8,8 @@ import LinearProgress from '@material-ui/core/LinearProgress';
 import { Box, ThemeProvider } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import { theme, placeOrderStyles } from '../utils/materialUI.jsx'
+import { createOrder } from '../actions/orderActions.js';
+import { ORDER_CREATE_RESET, ORDER_CREATE_SUCCESS } from '../constants/orderConstants.js';
 
 
 const PlaceOrderScreen = (props) => {
@@ -16,6 +18,11 @@ const PlaceOrderScreen = (props) => {
     const user = useSelector((state) => state.userSignin.userInfo)
     const { shippingAddress } = cart
     const { cartItems } = cart
+    const dispatch = useDispatch()
+
+    const orderCreate = useSelector((state) => state.orderCreate)
+    const { loading, success, error, order } = orderCreate
+
 
     if (!user) {
         props.history.push('/login')
@@ -23,8 +30,15 @@ const PlaceOrderScreen = (props) => {
         props.history.push('/shipping')
     }
 
+    useEffect(() => {
+        if (success) {
+            props.history.push(`/order/${order.id}`)
+            dispatch({ type: ORDER_CREATE_RESET })
+        }
+    })
+
     const submitHandler = () => {
-        // TODO
+        dispatch(createOrder({ ...cart, orderItems: cart.cartItems }))
     }
 
     return (
