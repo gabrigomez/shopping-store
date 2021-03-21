@@ -9,7 +9,7 @@ import { Box, ThemeProvider } from '@material-ui/core';
 import ListItemText from '@material-ui/core/ListItemText';
 import { theme, placeOrderStyles } from '../utils/materialUI.jsx'
 import { createOrder } from '../actions/orderActions.js';
-import { ORDER_CREATE_RESET, ORDER_CREATE_SUCCESS } from '../constants/orderConstants.js';
+import { ORDER_CREATE_RESET } from '../constants/orderConstants.js';
 
 
 const PlaceOrderScreen = (props) => {
@@ -35,7 +35,7 @@ const PlaceOrderScreen = (props) => {
             props.history.push(`/order/${order.id}`)
             dispatch({ type: ORDER_CREATE_RESET })
         }
-    })
+    }, [dispatch, order, props.history, success])
 
     const submitHandler = () => {
         dispatch(createOrder({ ...cart, orderItems: cart.cartItems }))
