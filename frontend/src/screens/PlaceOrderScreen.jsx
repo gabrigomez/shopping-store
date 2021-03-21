@@ -41,6 +41,9 @@ const PlaceOrderScreen = (props) => {
         dispatch(createOrder({ ...cart, orderItems: cart.cartItems }))
     }
 
+    const totalPrice = cartItems.reduce((a, c) => a + c.price * c.qtd, 0)
+    const itemsPrice = cartItems.map((item) => item.price * item.qtd)
+
     return (
         <Box>
             <ThemeProvider theme={theme}>
@@ -64,7 +67,7 @@ const PlaceOrderScreen = (props) => {
                                     <Avatar src={item.image} alt={item.name} />
                                     <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
                                     <ListItemText primary={`x${item.qtd}`} />
-                                    <Typography variant="h6"> R${item.price * item.qtd}</Typography>
+                                    <Typography variant="h6"> R${itemsPrice}</Typography>
                                 </Box>
                             ))}
                         </Box>
@@ -82,7 +85,7 @@ const PlaceOrderScreen = (props) => {
                 </Box>
                 <Typography align="center" variant="h4" >
                     <Box>
-                        Total: R$ {cartItems.reduce((a, c) => a + c.price * c.qtd, 0).toFixed(2)}
+                        Total: R$ {totalPrice.toFixed(2)}
                     </Box>
                 </Typography>
 

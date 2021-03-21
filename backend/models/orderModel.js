@@ -40,3 +40,8 @@ const orderSchema = new mongoose.Schema(
 const Order = mongoose.model('Order', orderSchema)
 
 export default Order
+
+
+//Cast to ObjectId failed for value "1" at path "product", 
+//shippingAddress.fullname: Path `shippingAddress.fullname` is required., 
+//itemsPrice: Path `itemsPrice` is required., totalPrice: Path `totalPrice` is required.

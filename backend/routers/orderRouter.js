@@ -15,10 +15,10 @@ orderRouter.post(
             const order = new Order({
                 orderItems: req.body.orderItems,
                 shippingAddress: req.body.shippingAddress,
-                paymentMethod: req.body.paymentMethod,
+                paymentMethod: req.body.paymentMethods,
                 itemsPrice: req.body.itemsPrice,
-                shippingPrice: req.body.shippingPrice,
-                taxPrice: req.body.taxPrice,
+                shippingPrice: 10,
+                taxPrice: 0,
                 totalPrice: req.body.totalPrice,
                 user: req.user.id,
             })
