@@ -11,7 +11,7 @@ const orderSchema = new mongoose.Schema(
                 product: {
                     type: mongoose.Schema.Types.ObjectId,
                     ref: 'Product',
-                    require: true
+                    required: true
                 }
             }
         ],
@@ -27,9 +27,9 @@ const orderSchema = new mongoose.Schema(
         taxPrice: { type: Number, required: true },
         totalPrice: { type: Number, required: true },
         user: { type: mongoose.Schema.Types.ObjectId, ref: 'user', required: true },
-        isPaid: { type: Boolean, required: true },
+        isPaid: { type: Boolean, default: false },
         paidAt: { type: Date },
-        isDelivered: { type: Boolean, required: true },
+        isDelivered: { type: Boolean, default: false },
         deliveredAt: { type: Date }
     },
     {

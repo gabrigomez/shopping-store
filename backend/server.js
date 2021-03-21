@@ -32,9 +32,7 @@ app.get('/api/products', (req, res) => {
 })
 
 app.use('/api/users', userRouter)
-
 app.use('/api/orders', orderRouter)
-
 app.get('/', (req, res) => {
     res.send('Server is on')
 })
