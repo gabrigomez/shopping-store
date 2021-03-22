@@ -8,8 +8,6 @@ import { listProducts } from '../actions/productActions';
 
 import '../tailwind.css'
 import './ProductScreen.css'
-import { ThemeProvider } from '@material-ui/styles';
-import { theme } from '../utils/materialUI';
 import { Button } from '@material-ui/core';
 
 
@@ -30,33 +28,31 @@ const ProductScreen = (props) => {
 
     return (
         <div>
-            <ThemeProvider theme={theme}>
-                {loading ? (
-                    <Loading></Loading>
-                ) : error ? (
-                    <Message>{error}</Message>
-                ) : (
-                    <div className="products">
-                        {products.map((product) => (
-                            <div>
-                                <Product key={product.id} product={product}></Product>
-                                <div className="addToCartMainSection">
-                                    <Button
-                                        id={product.id}
-                                        onClick={addToCart}
-                                        type="submit"
-                                        variant="contained"
-                                        color="primary"
-                                    >
-                                        ADICIONAR
+            {loading ? (
+                <Loading></Loading>
+            ) : error ? (
+                <Message>{error}</Message>
+            ) : (
+                <div className="products">
+                    {products.map((product) => (
+                        <div>
+                            <Product key={product.id} product={product}></Product>
+                            <div className="addToCartMainSection">
+                                <Button
+                                    id={product.id}
+                                    onClick={addToCart}
+                                    type="submit"
+                                    variant="contained"
+                                    color="primary"
+                                >
+                                    ADICIONAR
                                         <i class="fas fa-shopping-cart"></i>
-                                    </Button>
-                                </div>
+                                </Button>
                             </div>
-                        ))}
-                    </div>
-                )}
-            </ThemeProvider>
+                        </div>
+                    ))}
+                </div>
+            )}
         </div>
     );
 };

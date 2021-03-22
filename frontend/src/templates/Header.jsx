@@ -8,11 +8,10 @@ import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AddBoxIcon from '@material-ui/icons/AddBox';
 import IconButton from '@material-ui/core/IconButton';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
-import { ThemeProvider } from '@material-ui/core/styles';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { signout } from '../actions/userActions';
-import { theme, StyledBadge } from '../utils/materialUI';
+import { StyledBadge } from '../utils/materialUI';
 import { Typography } from '@material-ui/core';
 import HomeIcon from '@material-ui/icons/Home';
 
@@ -40,22 +39,18 @@ const Header = () => {
                         (
                             <div className="cartQtd">
                                 <IconButton aria-label="cart">
-                                    <ThemeProvider theme={theme}>
-                                        <StyledBadge badgeContent={cartItems.length} color="primary">
-                                            <ShoppingCartIcon className="cart" />
-                                        </StyledBadge>
-                                    </ThemeProvider>
+                                    <StyledBadge badgeContent={cartItems.length} color="primary">
+                                        <ShoppingCartIcon className="cart" />
+                                    </StyledBadge>
                                 </IconButton>
                             </div>
                         ) : (
 
                             <div>
                                 <ShoppingCartIcon />
-                                <ThemeProvider theme={theme}>
-                                    <Typography color="primary" >
-                                        Carrinho
-                                    </Typography>
-                                </ThemeProvider>
+                                <Typography color="primary" >
+                                    Carrinho
+                                </Typography>
                             </div>
                         )
                     }
