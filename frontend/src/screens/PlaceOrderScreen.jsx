@@ -66,7 +66,7 @@ const PlaceOrderScreen = (props) => {
                                 <Avatar src={item.image} alt={item.name} />
                                 <ListItemText primary={item.name} secondary={`R$ ${item.price}`} />
                                 <ListItemText primary={`x${item.qtd}`} />
-                                <Typography variant="h6"> R${itemsPrice}</Typography>
+                                <Typography variant="h6"> R${item.price * item.qtd}</Typography>
                             </Box>
                         ))}
                     </Box>

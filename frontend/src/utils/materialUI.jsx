@@ -8,7 +8,8 @@ export const theme = createMuiTheme({
     palette: {
         primary: yellow,
         secondary: grey['#212121']
-    }
+    },
+
 });
 
 export const StyledBadge = withStyles((theme) => ({
